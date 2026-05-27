@@ -8,43 +8,43 @@ interface FeatureTipItem {
 
 const FEATURE_TIPS: FeatureTipItem[] = [
 	{
-		text: 'Enable "Double-Check Completion" in settings to have Cline verify its work before finishing a task.',
+		text: '在设置中启用"双重检查完成"，让 Cline 在完成任务前验证其工作。',
 	},
 	{
-		text: "Add a .clinerules file to your project root to give Cline project-specific instructions.",
+		text: "在项目根目录添加 .clinerules 文件，为 Cline 提供项目特定的指令。",
 	},
 	{
-		text: "Switch to Plan Mode to discuss and plan an approach before Cline takes action.",
+		text: "切换到计划模式，在 Cline 执行操作之前讨论和规划方案。",
 	},
 	{
-		text: "Use @ in the chat input to add files, folders, or URLs as context for your task.",
+		text: "在聊天输入中使用 @ 添加文件、文件夹或 URL 作为任务的上下文。",
 	},
 	{
-		text: "Set up MCP Servers to give Cline access to external tools and APIs.",
+		text: "设置 MCP 服务，让 Cline 能够访问外部工具和 API。",
 	},
 	{
-		text: "Cline creates checkpoints after changes — you can always restore to a previous state.",
+		text: "Cline 会在更改后创建检查点 — 您可以随时恢复到之前的状态。",
 	},
 	{
-		text: "Use /compact to condense long conversations and free up context window space.",
+		text: "使用 /compact 压缩长对话，释放上下文窗口空间。",
 	},
 	{
-		text: "Enable auto-approve for read-only tools like file reads to speed up exploration.",
+		text: "为文件读取等只读工具启用自动批准，加快探索速度。",
 	},
 	{
-		text: "Use the quote button to select text from Cline's response and reference it in your reply.",
+		text: "使用引用按钮选择 Cline 回复中的文本，并在您的回复中引用它。",
 	},
 	{
-		text: "You can drag and drop images into the chat to share screenshots with Cline.",
+		text: "您可以将图片拖拽到聊天中，与 Cline 分享截图。",
 	},
 	{
-		text: "Cline can browse websites — ask it to test your local dev server in the browser.",
+		text: "Cline 可以浏览网站 — 让它测试您本地开发服务器中的浏览器。",
 	},
 	{
-		text: "Use /reportbug to quickly file a GitHub issue with diagnostic context included.",
+		text: "使用 /reportbug 快速提交 GitHub Issue，包含诊断上下文信息。",
 	},
 	{
-		text: 'You can disable these tips in Settings → Features → "Feature Tips".',
+		text: '您可以在设置 → 功能 → "功能提示" 中关闭这些提示。',
 	},
 ]
 

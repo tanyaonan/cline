@@ -54,7 +54,7 @@ const ConfigureServersView = () => {
 					}}
 					style={{ width: "100%", marginBottom: "5px" }}>
 					<span className="codicon codicon-server" style={{ marginRight: "6px" }}></span>
-					Configure MCP Servers
+					配置 MCP 服务
 				</VSCodeButton>
 
 				<div style={{ textAlign: "center" }}>

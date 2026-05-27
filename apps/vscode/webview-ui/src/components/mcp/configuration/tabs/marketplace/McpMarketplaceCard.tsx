@@ -201,7 +201,7 @@ const McpMarketplaceCard = ({ item, installedServers, setError }: McpMarketplace
 								<span style={{ wordBreak: "break-all" }}>{item.downloadCount?.toLocaleString() ?? 0}</span>
 							</div>
 							{item.requiresApiKey && (
-								<span className="codicon codicon-key" style={{ flexShrink: 0 }} title="Requires API key" />
+								<span className="codicon codicon-key" style={{ flexShrink: 0 }} title="需要 API 密钥" />
 							)}
 						</div>
 					</div>
