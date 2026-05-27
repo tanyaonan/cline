@@ -133,27 +133,27 @@
 		"commands": [
 			{
 				"command": "cline.plusButtonClicked",
-				"title": "New Task",
+				"title": "新任务",
 				"icon": "$(add)"
 			},
 			{
 				"command": "cline.mcpButtonClicked",
-				"title": "MCP Servers",
+				"title": "MCP 服务器",
 				"icon": "$(server)"
 			},
 			{
 				"command": "cline.historyButtonClicked",
-				"title": "History",
+				"title": "历史",
 				"icon": "$(history)"
 			},
 			{
 				"command": "cline.accountButtonClicked",
-				"title": "Account",
+				"title": "账户",
 				"icon": "$(account)"
 			},
 			{
 				"command": "cline.settingsButtonClicked",
-				"title": "Settings",
+				"title": "设置",
 				"icon": "$(settings-gear)"
 			},
 			{

@@ -211,7 +211,7 @@ export const ModelInfoView = ({
 			<InfoRow>
 				{modelInfo.contextWindow !== undefined && modelInfo.contextWindow > 0 && (
 					<InfoItem>
-						<InfoLabel>Context: </InfoLabel>
+						<InfoLabel>上下文：</InfoLabel>
 						<InfoValue>{formatCompactContext(modelInfo.contextWindow)}</InfoValue>
 					</InfoItem>
 				)}
@@ -223,7 +223,7 @@ export const ModelInfoView = ({
 				)}
 				{modelInfo.outputPrice !== undefined && (
 					<InfoItem>
-						<InfoLabel>Output: </InfoLabel>
+						<InfoLabel>输出：</InfoLabel>
 						<InfoValue>
 							{hasThinkingConfig && modelInfo.thinkingConfig?.outputPrice !== undefined
 								? formatCompactPrice(modelInfo.thinkingConfig.outputPrice)
