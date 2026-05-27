@@ -56,7 +56,7 @@ const McpToolRow = ({ tool, serverName }: McpToolRowProps) => {
 						data-tool={tool.name}
 						onChange={handleAutoApproveChange}
 						style={{ fontSize: "11px" }}>
-						Auto-approve
+						自动批准
 					</VSCodeCheckbox>
 				)}
 			</div>

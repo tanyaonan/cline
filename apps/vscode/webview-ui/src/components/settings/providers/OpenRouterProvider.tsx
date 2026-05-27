@@ -67,7 +67,7 @@ export const OpenRouterProvider = ({ showModelOptions, isPopup, currentMode }: O
 				<DebouncedTextField
 					initialValue={apiConfiguration?.openRouterApiKey || ""}
 					onChange={(value) => handleFieldChange("openRouterApiKey", value)}
-					placeholder="Enter API Key..."
+					placeholder="输入 API Key..."
 					style={{ width: "100%" }}
 					type="password">
 					<div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>

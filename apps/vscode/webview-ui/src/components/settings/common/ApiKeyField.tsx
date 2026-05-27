@@ -21,7 +21,7 @@ export const ApiKeyField = ({
 	onChange,
 	providerName,
 	signupUrl,
-	placeholder = "Enter API Key...",
+	placeholder = "输入 API 密钥...",
 	helpText,
 }: ApiKeyFieldProps) => {
 	const [localValue, setLocalValue] = useDebouncedInput(initialValue, onChange)
@@ -35,7 +35,7 @@ export const ApiKeyField = ({
 				style={{ width: "100%" }}
 				type="password"
 				value={localValue}>
-				<span style={{ fontWeight: 500 }}>{providerName} API Key</span>
+				<span style={{ fontWeight: 500 }}>{providerName} API 密钥</span>
 			</VSCodeTextField>
 			<p
 				style={{

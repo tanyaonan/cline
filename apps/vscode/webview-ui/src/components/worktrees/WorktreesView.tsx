@@ -241,24 +241,23 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 			{/* Sticky Header with title and Done button */}
 			<div className="flex-none flex justify-between items-center px-5 py-3 border-b border-[var(--vscode-panel-border)]">
 				<h3 className="m-0" style={{ color: getEnvironmentColor(environment) }}>
-					Worktrees
+					工作树
 				</h3>
-				<VSCodeButton onClick={onDone}>Done</VSCodeButton>
+				<VSCodeButton onClick={onDone}>完成</VSCodeButton>
 			</div>
 
 			{/* Scrollable Content */}
 			<div className="flex-1 overflow-y-auto p-5">
 				{/* Description */}
 				<p className="text-sm text-[var(--vscode-descriptionForeground)] m-0 mb-4">
-					Git worktrees let you work on multiple branches at the same time, each in its own folder. Open worktrees in
-					their own windows so Cline can work on multiple tasks in parallel.{" "}
+					Git 工作树让您可以同时在多个分支上工作，每个分支都在自己的文件夹中。在单独的窗口中打开工作树，以便 Cline 可以并行处理多个任务。{" "}
 					<a
 						className="text-[var(--vscode-textLink-foreground)] hover:text-[var(--vscode-textLink-activeForeground)]"
 						href="https://docs.cline.bot/features/worktrees"
 						rel="noopener noreferrer"
 						style={{ fontSize: "inherit" }}
 						target="_blank">
-						Learn more
+						了解更多
 					</a>
 				</p>
 
@@ -273,35 +272,34 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 						{hasWorktreeInclude ? (
 							<p className="text-sm text-[var(--vscode-testing-iconPassed)] m-0">
 								<Check className="w-4 h-4 inline-block align-text-bottom mr-1" />
-								.worktreeinclude detected.{" "}
+								检测到 .worktreeinclude 文件。{" "}
 								<a
 									className="text-[var(--vscode-textLink-foreground)] hover:text-[var(--vscode-textLink-activeForeground)]"
 									href="https://docs.cline.bot/features/worktrees#worktreeinclude"
 									rel="noopener noreferrer"
 									style={{ fontSize: "inherit" }}
 									target="_blank">
-									Learn more
+									了解更多
 								</a>
 							</p>
 						) : (
 							<div className="flex flex-col gap-2">
 								<p className="text-sm text-[var(--vscode-descriptionForeground)] m-0">
-									<strong>Tip:</strong> Create a{" "}
+									<strong>提示：</strong>创建{" "}
 									<code className="bg-[var(--vscode-textCodeBlock-background)] px-1 rounded">
 										.worktreeinclude
 									</code>{" "}
-									file to automatically copy files like{" "}
+									文件以自动将文件（如{" "}
 									<code className="bg-[var(--vscode-textCodeBlock-background)] px-1 rounded">
 										node_modules/
-									</code>{" "}
-									to new worktrees, so you don't have to reinstall dependencies.{" "}
+									</code>）复制到新建工作树中，这样您就不必重新安装依赖。{" "}
 									<a
 										className="text-[var(--vscode-textLink-foreground)] hover:text-[var(--vscode-textLink-activeForeground)]"
 										href="https://docs.cline.bot/features/worktrees#worktreeinclude"
 										rel="noopener noreferrer"
 										style={{ fontSize: "inherit" }}
 										target="_blank">
-										Learn more
+										了解更多
 									</a>
 								</p>
 								{hasGitignore && (
@@ -312,10 +310,10 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 										{isCreatingWorktreeInclude ? (
 											<>
 												<Loader2 className="w-3 h-3 mr-1 animate-spin" />
-												Creating...
+												创建中...
 											</>
 										) : (
-											"Create from .gitignore"
+											"从 .gitignore 创建"
 										)}
 									</VSCodeButton>
 								)}
@@ -328,24 +326,22 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 				{isLoading ? (
 					<div className="flex items-center justify-center min-h-32 py-8">
 						<Loader2 className="w-6 h-6 animate-spin text-[var(--vscode-descriptionForeground)]" />
-						<span className="ml-2 text-[var(--vscode-descriptionForeground)]">Loading...</span>
+						<span className="ml-2 text-[var(--vscode-descriptionForeground)]">加载中...</span>
 					</div>
 				) : isMultiRoot ? (
 					<div className="flex flex-col items-center justify-center min-h-32 py-8 text-center">
 						<AlertCircle className="w-8 h-8 text-[var(--vscode-inputValidation-warningForeground)] mb-2 shrink-0" />
-						<p className="text-[var(--vscode-foreground)] font-medium mb-1">Multi-folder workspace detected</p>
+						<p className="text-[var(--vscode-foreground)] font-medium mb-1">检测到多文件夹工作区</p>
 						<p className="text-[var(--vscode-descriptionForeground)] text-sm">
-							Worktrees are not supported when multiple folders are open in the same workspace. Please open a single
-							repository folder to use this feature.
+							在同一工作区中打开多个文件夹时不支持工作树。请打开单个仓库文件夹以使用此功能。
 						</p>
 					</div>
 				) : isSubfolder ? (
 					<div className="flex flex-col items-center justify-center min-h-32 py-8 text-center">
 						<AlertCircle className="w-8 h-8 text-[var(--vscode-inputValidation-warningForeground)] mb-2 shrink-0" />
-						<p className="text-[var(--vscode-foreground)] font-medium mb-1">Subfolder of a git repository</p>
+						<p className="text-[var(--vscode-foreground)] font-medium mb-1">Git 仓库的子文件夹</p>
 						<p className="text-[var(--vscode-descriptionForeground)] text-sm">
-							You have a subfolder open instead of the repository root. Please open the root folder to use
-							worktrees:
+							您打开的是子文件夹而非仓库根目录。请打开根文件夹以使用工作树：
 						</p>
 						<code className="mt-2 px-2 py-1 bg-[var(--vscode-textCodeBlock-background)] rounded text-sm break-all">
 							{gitRootPath}
@@ -355,7 +351,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 					<div className="flex flex-col items-center justify-center min-h-32 py-8 text-center">
 						<AlertCircle className="w-8 h-8 text-[var(--vscode-descriptionForeground)] mb-2 shrink-0" />
 						<p className="text-[var(--vscode-descriptionForeground)]">
-							Worktrees require a git repository. Please initialize git to use worktrees.
+							工作树需要 Git 仓库。请初始化 Git 以使用工作树。
 						</p>
 					</div>
 				) : error ? (
@@ -363,13 +359,13 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 						<AlertCircle className="w-8 h-8 text-[var(--vscode-errorForeground)] mb-2 shrink-0" />
 						<p className="text-[var(--vscode-errorForeground)]">{error}</p>
 						<VSCodeButton appearance="secondary" className="mt-3" onClick={loadWorktrees}>
-							Retry
+							重试
 						</VSCodeButton>
 					</div>
 				) : worktrees.length === 0 ? (
 					<div className="flex flex-col items-center justify-center min-h-32 py-8 text-center">
 						<GitBranch className="w-8 h-8 text-[var(--vscode-descriptionForeground)] mb-2 shrink-0" />
-						<p className="text-[var(--vscode-descriptionForeground)]">No worktrees found.</p>
+						<p className="text-[var(--vscode-descriptionForeground)]">未找到工作树。</p>
 					</div>
 				) : (
 					<>
@@ -390,18 +386,18 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 											<div className="flex items-center gap-2">
 												<GitBranch className="w-4 h-4 flex-shrink-0 text-[var(--vscode-button-background)]" />
 												<span className="font-medium break-all">
-													{worktree.branch || (worktree.isDetached ? "HEAD (detached)" : "unknown")}
+													{worktree.branch || (worktree.isDetached ? "HEAD（分离头指针）" : "未知")}
 												</span>
 											</div>
 											{isMainWorktree(worktree) && (
 												<Tooltip>
 													<TooltipTrigger asChild>
 														<span className="text-xs px-1.5 py-0.5 rounded bg-[var(--vscode-badge-background)] text-[var(--vscode-badge-foreground)] cursor-help">
-															Primary
+															主工作树
 														</span>
 													</TooltipTrigger>
 													<TooltipContent side="bottom">
-														The original worktree where your .git directory lives.
+														存放 .git 目录的原始工作树。
 													</TooltipContent>
 												</Tooltip>
 											)}
@@ -409,17 +405,17 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 												<Tooltip>
 													<TooltipTrigger asChild>
 														<span className="text-xs px-1.5 py-0.5 rounded bg-[var(--vscode-button-background)] text-[var(--vscode-button-foreground)] cursor-help">
-															Current
+															当前
 														</span>
 													</TooltipTrigger>
 													<TooltipContent side="bottom">
-														This is the worktree currently open in this window.
+														这是当前窗口中打开的工作树。
 													</TooltipContent>
 												</Tooltip>
 											)}
 											{worktree.isLocked && (
 												<span className="text-xs px-1.5 py-0.5 rounded bg-[var(--vscode-inputValidation-warningBackground)] text-[var(--vscode-inputValidation-warningForeground)]">
-													Locked
+													已锁定
 												</span>
 											)}
 										</div>
@@ -435,7 +431,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 																<FolderOpen className="w-4 h-4" />
 															</VSCodeButton>
 														</TooltipTrigger>
-														<TooltipContent side="bottom">Open in current window</TooltipContent>
+														<TooltipContent side="bottom">在当前窗口中打开</TooltipContent>
 													</Tooltip>
 													<Tooltip>
 														<TooltipTrigger asChild>
@@ -445,7 +441,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 																<ExternalLink className="w-4 h-4" />
 															</VSCodeButton>
 														</TooltipTrigger>
-														<TooltipContent side="bottom">Open in new window</TooltipContent>
+														<TooltipContent side="bottom">在新窗口中打开</TooltipContent>
 													</Tooltip>
 												</>
 											)}
@@ -460,7 +456,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 															</VSCodeButton>
 														</TooltipTrigger>
 														<TooltipContent side="bottom">
-															Merge into {getMainBranch()}
+															合并到 {getMainBranch()}
 														</TooltipContent>
 													</Tooltip>
 													<Tooltip>
@@ -471,7 +467,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 																<Trash2 className="w-4 h-4 text-[var(--vscode-errorForeground)]" />
 															</VSCodeButton>
 														</TooltipTrigger>
-														<TooltipContent side="bottom">Delete this worktree</TooltipContent>
+														<TooltipContent side="bottom">删除此工作树</TooltipContent>
 													</Tooltip>
 												</>
 											)}
@@ -497,7 +493,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 					}}>
 					<VSCodeButton disabled={isLoading} onClick={() => setShowCreateForm(true)} style={{ width: "100%" }}>
 						<Plus className="w-4 h-4 mr-1" />
-						New Worktree
+						新建工作树
 					</VSCodeButton>
 				</div>
 			)}
@@ -535,7 +531,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 
 						<div className="flex items-center gap-2 mb-2">
 							<GitMerge className="w-5 h-5 text-[var(--vscode-testing-iconPassed)]" />
-							<h4 className="m-0 pr-6">Merge Worktree</h4>
+							<h4 className="m-0 pr-6">合并工作树</h4>
 						</div>
 
 						{/* Success state */}
@@ -546,7 +542,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 									<p className="text-sm m-0">{mergeResult.message}</p>
 								</div>
 								<div className="flex justify-end">
-									<VSCodeButton onClick={closeMergeModal}>Done</VSCodeButton>
+									<VSCodeButton onClick={closeMergeModal}>完成</VSCodeButton>
 								</div>
 							</div>
 						) : mergeResult?.hasConflicts ? (
@@ -555,9 +551,9 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 								<div className="flex items-start gap-2 p-3 rounded bg-[var(--vscode-inputValidation-warningBackground)] border border-[var(--vscode-inputValidation-warningBorder)]">
 									<AlertCircle className="w-5 h-5 flex-shrink-0 text-[var(--vscode-inputValidation-warningForeground)] mt-0.5" />
 									<div>
-										<p className="text-sm font-medium m-0 mb-1">Merge conflicts detected</p>
+										<p className="text-sm font-medium m-0 mb-1">检测到合并冲突</p>
 										<p className="text-sm text-[var(--vscode-descriptionForeground)] m-0 mb-2">
-											The following files have conflicts:
+											以下文件存在冲突：
 										</p>
 										<ul className="m-0 pl-4 text-sm font-mono text-[var(--vscode-descriptionForeground)]">
 											{mergeResult.conflictingFiles.slice(0, 3).map((file) => (
@@ -565,7 +561,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 											))}
 											{mergeResult.conflictingFiles.length > 3 && (
 												<li className="text-[var(--vscode-descriptionForeground)]">
-													...and {mergeResult.conflictingFiles.length - 3} more
+													...以及其余 {mergeResult.conflictingFiles.length - 3} 个
 												</li>
 											)}
 										</ul>
@@ -574,10 +570,10 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 
 								<div className="flex flex-col gap-2">
 									<VSCodeButton onClick={handleAskClineToResolve} style={{ width: "100%" }}>
-										Ask Cline to Resolve
+										让 Cline 解决
 									</VSCodeButton>
 									<VSCodeButton appearance="secondary" onClick={closeMergeModal} style={{ width: "100%" }}>
-										I'll Resolve Manually
+										手动解决
 									</VSCodeButton>
 								</div>
 							</div>
@@ -585,15 +581,15 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 							/* Default state - confirm merge */
 							<div className="flex flex-col gap-4">
 								<p className="text-sm text-[var(--vscode-descriptionForeground)] m-0">
-									This will merge branch{" "}
+									这将把分支{" "}
 									<code className="bg-[var(--vscode-textCodeBlock-background)] px-1 rounded">
 										{mergeWorktree.branch}
 									</code>{" "}
-									into{" "}
+									合并到{" "}
 									<code className="bg-[var(--vscode-textCodeBlock-background)] px-1 rounded">
 										{getMainBranch()}
 									</code>
-									.
+									。
 								</p>
 
 								<label className="flex items-center gap-2 cursor-pointer">
@@ -601,7 +597,7 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 										checked={deleteAfterMerge}
 										onChange={(e) => setDeleteAfterMerge((e.target as HTMLInputElement).checked)}
 									/>
-									<span className="text-sm">Delete worktree after successful merge</span>
+									<span className="text-sm">合并成功后删除工作树</span>
 								</label>
 
 								{mergeError && (
@@ -613,18 +609,18 @@ Please help me resolve these merge conflicts, then complete the merge, and delet
 
 								<div className="flex justify-end gap-2">
 									<VSCodeButton appearance="secondary" disabled={isMerging} onClick={closeMergeModal}>
-										Cancel
+										取消
 									</VSCodeButton>
 									<VSCodeButton disabled={isMerging} onClick={handleMergeWorktree}>
 										{isMerging ? (
 											<>
 												<Loader2 className="w-4 h-4 mr-1 animate-spin" />
-												Merging...
+												合并中...
 											</>
 										) : (
 											<>
 												<GitMerge className="w-4 h-4 mr-1" />
-												Merge
+												合并
 											</>
 										)}
 									</VSCodeButton>

@@ -43,7 +43,7 @@ export const WhatsNewModal: React.FC<WhatsNewModalProps> = ({ open, onClose, ver
 						className="text-lg font-semibold mb-3 pr-6"
 						id="whats-new-title"
 						style={{ color: "var(--vscode-editor-foreground)" }}>
-						🎉 New in v{version}
+						🎉 v{version} 新功能
 					</h2>
 
 					<WhatsNewItems
@@ -59,7 +59,7 @@ export const WhatsNewModal: React.FC<WhatsNewModalProps> = ({ open, onClose, ver
 						<div className="flex items-center gap-4">
 							{/* X/Twitter */}
 							<a
-								aria-label="Follow us on X"
+								aria-label="在 X 上关注我们"
 								className="text-[var(--vscode-foreground)] hover:text-[var(--vscode-textLink-activeForeground)] transition-colors"
 								href="https://x.com/cline"
 								rel="noopener noreferrer"
@@ -69,7 +69,7 @@ export const WhatsNewModal: React.FC<WhatsNewModalProps> = ({ open, onClose, ver
 
 							{/* Discord */}
 							<a
-								aria-label="Join our Discord"
+								aria-label="加入我们的 Discord"
 								className="text-[var(--vscode-foreground)] hover:text-[var(--vscode-textLink-activeForeground)] transition-colors"
 								href="https://discord.gg/cline"
 								rel="noopener noreferrer"
@@ -79,7 +79,7 @@ export const WhatsNewModal: React.FC<WhatsNewModalProps> = ({ open, onClose, ver
 
 							{/* GitHub */}
 							<a
-								aria-label="Star us on GitHub"
+								aria-label="在 GitHub 上为我们点赞"
 								className="text-[var(--vscode-foreground)] hover:text-[var(--vscode-textLink-activeForeground)] transition-colors"
 								href="https://github.com/cline/cline"
 								rel="noopener noreferrer"
@@ -89,7 +89,7 @@ export const WhatsNewModal: React.FC<WhatsNewModalProps> = ({ open, onClose, ver
 
 							{/* Reddit */}
 							<a
-								aria-label="Join our subreddit"
+								aria-label="加入我们的 Reddit 社区"
 								className="text-[var(--vscode-foreground)] hover:text-[var(--vscode-textLink-activeForeground)] transition-colors"
 								href="https://www.reddit.com/r/cline/"
 								rel="noopener noreferrer"
@@ -99,7 +99,7 @@ export const WhatsNewModal: React.FC<WhatsNewModalProps> = ({ open, onClose, ver
 
 							{/* LinkedIn */}
 							<a
-								aria-label="Follow us on LinkedIn"
+								aria-label="在 LinkedIn 上关注我们"
 								className="text-[var(--vscode-foreground)] hover:text-[var(--vscode-textLink-activeForeground)] transition-colors"
 								href="https://www.linkedin.com/company/clinebot/"
 								rel="noopener noreferrer"
@@ -110,15 +110,15 @@ export const WhatsNewModal: React.FC<WhatsNewModalProps> = ({ open, onClose, ver
 
 						{/* GitHub Star CTA */}
 						<p className="text-sm text-center" style={{ color: "var(--vscode-descriptionForeground)" }}>
-							Please support Cline by{" "}
+							请在 GitHub 上为我们
 							<a
 								href="https://github.com/cline/cline"
 								rel="noopener noreferrer"
 								style={{ color: "var(--vscode-textLink-foreground)" }}
 								target="_blank">
-								starring us on GitHub
+								点赞
 							</a>
-							.
+							，支持 Cline。
 						</p>
 					</div>
 				</div>

@@ -21,7 +21,7 @@ const GeneralSettingsSection = ({ renderSectionHeader }: GeneralSettingsSectionP
 				<div className="mb-[5px]">
 					<Tooltip>
 						<TooltipContent hidden={remoteConfigSettings?.telemetrySetting === undefined}>
-							This setting is managed by your organization's remote configuration
+							此设置由组织远程配置管理
 						</TooltipContent>
 						<TooltipTrigger asChild>
 							<div className="flex items-center gap-2 mb-[5px]">
@@ -32,7 +32,7 @@ const GeneralSettingsSection = ({ renderSectionHeader }: GeneralSettingsSectionP
 										const checked = e.target.checked === true
 										updateSetting("telemetrySetting", checked ? "enabled" : "disabled")
 									}}>
-									Allow error and usage reporting
+									允许发送错误和使用报告
 								</VSCodeCheckbox>
 								{!!remoteConfigSettings?.telemetrySetting && (
 									<i className="codicon codicon-lock text-description text-sm" />
@@ -42,22 +42,21 @@ const GeneralSettingsSection = ({ renderSectionHeader }: GeneralSettingsSectionP
 					</Tooltip>
 
 					<p className="text-sm mt-[5px] text-description">
-						Help improve Cline by sending usage data and error reports. No code, prompts, or personal information are
-						ever sent. See our{" "}
+						通过发送使用数据和错误报告来帮助改进 Cline。不会发送任何代码、提示词或个人隐私信息。请参阅我们的{" "}
 						<VSCodeLink
 							className="text-inherit"
 							href="https://docs.cline.bot/more-info/telemetry"
 							style={{ fontSize: "inherit", textDecoration: "underline" }}>
-							telemetry overview
+							遥测概述
 						</VSCodeLink>{" "}
-						and{" "}
+						和{" "}
 						<VSCodeLink
 							className="text-inherit"
 							href="https://cline.bot/privacy"
 							style={{ fontSize: "inherit", textDecoration: "underline" }}>
-							privacy policy
+							隐私政策
 						</VSCodeLink>{" "}
-						for more details.
+						了解更多详情。
 					</p>
 				</div>
 			</Section>

@@ -35,8 +35,8 @@ const getActivityText = (tool: ClineSayTool): string | null => {
 			.filter(Boolean)
 			.join(" | ")
 		return filePattern && filePattern !== "*"
-			? `"${terms}" in ${cleanedPath}/ (${filePattern})`
-			: `"${terms}" in ${cleanedPath}/`
+			? `"${terms}" 位于 ${cleanedPath}/ (${filePattern})`
+			: `"${terms}" 位于 ${cleanedPath}/`
 	}
 
 	switch (tool.tool) {
@@ -45,16 +45,16 @@ const getActivityText = (tool: ClineSayTool): string | null => {
 				return null
 			}
 			const lineHint =
-				tool.readLineStart != null && tool.readLineEnd != null ? ` (lines ${tool.readLineStart}-${tool.readLineEnd})` : ""
-			return `Reading ${cleanedPath}${lineHint}...`
+				tool.readLineStart != null && tool.readLineEnd != null ? ` (第 ${tool.readLineStart}-${tool.readLineEnd} 行)` : ""
+			return `正在读取 ${cleanedPath}${lineHint}...`
 		}
 		case "listFilesTopLevel":
 		case "listFilesRecursive":
-			return tool.path ? `Exploring ${cleanedPath}/...` : null
+			return tool.path ? `正在浏览 ${cleanedPath}/...` : null
 		case "searchFiles":
-			return tool.regex && tool.path ? `Searching ${formatSearchRegex(tool.regex, tool.path, tool.filePattern)}...` : null
+			return tool.regex && tool.path ? `正在搜索 ${formatSearchRegex(tool.regex, tool.path, tool.filePattern)}...` : null
 		case "listCodeDefinitionNames":
-			return tool.path ? `Analyzing ${cleanedPath}/...` : null
+			return tool.path ? `正在分析 ${cleanedPath}/...` : null
 		default:
 			return null
 	}
@@ -301,7 +301,7 @@ function getToolDisplayInfo(tool: ClineSayTool) {
 	switch (tool.tool) {
 		case "readFile": {
 			const lineNote =
-				tool.readLineStart != null && tool.readLineEnd != null ? `lines ${tool.readLineStart}-${tool.readLineEnd}` : null
+				tool.readLineStart != null && tool.readLineEnd != null ? `第 ${tool.readLineStart}-${tool.readLineEnd} 行` : null
 			return {
 				icon,
 				path: filePath,
@@ -337,8 +337,8 @@ function formatSearchDisplay(regex: string, path: string, filePattern?: string):
 		.map((t) => t.trim().replace(/\\b/g, "").replace(/\\s\?/g, " "))
 		.filter(Boolean)
 
-	const termDisplay = terms.length > 3 ? `${terms.length} patterns` : `"${terms.join(" | ")}"`
-	let result = `${termDisplay} in ${cleanPathPrefix(path)}/`
+	const termDisplay = terms.length > 3 ? `${terms.length} 个模式` : `"${terms.join(" | ")}"`
+	let result = `${termDisplay} 位于 ${cleanPathPrefix(path)}/`
 
 	if (filePattern && filePattern !== "*") {
 		result += ` (${filePattern})`
@@ -372,20 +372,25 @@ export function getToolGroupSummaryFromParsedTools(tools: ClineSayTool[]): strin
 	}
 
 	const parts: string[] = []
-	const action = counts.read > 0 || counts.list > 0 ? " read " : " "
+	const hasReadOrList = counts.read > 0 || counts.list > 0
 
 	if (counts.read > 0) {
-		parts.push(`${counts.read} file${counts.read > 1 ? "s" : ""}`)
+		parts.push(`${counts.read} 个文件`)
 	}
 	if (counts.list > 0) {
-		parts.push(`${counts.list} folder${counts.list > 1 ? "s" : ""}`)
+		parts.push(`${counts.list} 个文件夹`)
 	}
 	if (counts.def > 0) {
-		parts.push(`${counts.def} definition${counts.def > 1 ? "s" : ""}`)
+		parts.push(`${counts.def} 个定义`)
 	}
 	if (counts.search > 0) {
-		parts.push(`performed ${counts.search} search${counts.search > 1 ? "es" : ""}`)
+		parts.push(`已搜索 ${counts.search} 次`)
 	}
 
-	return parts.length === 0 ? "Context" : "Cline" + action + parts.join(", ")
+	if (parts.length === 0) return "上下文"
+
+	if (hasReadOrList) {
+		return `Cline 已读取 ${parts.join("、")}`
+	}
+	return `Cline ${parts.join("、")}`
 }

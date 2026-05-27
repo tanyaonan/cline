@@ -19,18 +19,17 @@ const ConfigureServersView = () => {
 					marginBottom: "16px",
 					marginTop: "5px",
 				}}>
-				The{" "}
+				{" "}
 				<VSCodeLink href="https://github.com/modelcontextprotocol" style={{ display: "inline" }}>
 					Model Context Protocol
 				</VSCodeLink>{" "}
-				enables communication with locally running MCP servers that provide additional tools and resources to extend
-				Cline's capabilities. You can use{" "}
+				支持与本地运行的 MCP 服务进行通信，这些服务提供额外的工具和资源来扩展 Cline 的能力。您可以使用{" "}
 				<VSCodeLink href="https://github.com/modelcontextprotocol/servers" style={{ display: "inline" }}>
-					community-made servers
+					社区制作的服务
 				</VSCodeLink>{" "}
-				or ask Cline to create new tools specific to your workflow (e.g., "add a tool that gets the latest npm docs").{" "}
+				或让 Cline 为您的工作流程创建专属工具（例如："添加一个获取最新 npm 文档的工具"）。{" "}
 				<VSCodeLink href="https://x.com/sdrzn/status/1867271665086074969" style={{ display: "inline" }}>
-					See a demo here.
+					点击此处查看演示。
 				</VSCodeLink>
 			</div>
 
@@ -60,7 +59,7 @@ const ConfigureServersView = () => {
 
 				<div style={{ textAlign: "center" }}>
 					<VSCodeLink onClick={() => navigateToSettings("features")} style={{ fontSize: "12px" }}>
-						Advanced MCP Settings
+						高级 MCP 设置
 					</VSCodeLink>
 				</div>
 			</div>

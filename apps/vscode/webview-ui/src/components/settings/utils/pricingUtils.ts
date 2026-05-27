@@ -17,7 +17,7 @@ export const formatPrice = (price: number) => {
  * @param price The price per million tokens
  */
 export const formatTokenPrice = (price: number) => {
-	return `${formatPrice(price)}/million tokens`
+	return `${formatPrice(price)}/百万 tokens`
 }
 
 /**

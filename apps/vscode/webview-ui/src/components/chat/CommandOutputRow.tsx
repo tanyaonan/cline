@@ -74,8 +74,8 @@ export const CommandOutputContent = memo(
 								console.error("Failed to open log file:", err),
 							)
 						}}
-						title={`Click to open: ${logFilePath}`}>
-						<span className="shrink-0">📋 Output is being logged to:</span>
+						title={`点击打开：${logFilePath}`}>
+						<span className="shrink-0">📋 输出日志保存至：</span>
 						<span className="text-vscode-textLink-foreground underline break-all">{fileName}</span>
 					</div>
 					{afterLogPath && <CodeBlock forceWrap={true} source={`${"```"}shell\n${afterLogPath}\n${"```"}`} />}
@@ -208,13 +208,13 @@ export const CommandOutputRow = memo(
 											} else {
 												// For regular terminal mode, show a message
 												alert(
-													"This command is running in the VSCode terminal. You can manually stop it using Ctrl+C in the terminal, or switch to Background Execution mode in settings for cancellable commands.",
+													"该命令正在 VSCode 终端中运行。您可以在终端中使用 Ctrl+C 手动停止，或切换到设置中的后台执行模式以支持取消命令。",
 												)
 											}
 										}}
 										size="sm"
 										variant="secondary">
-										{isBackgroundExec ? "cancel" : "stop"}
+										{isBackgroundExec ? "取消" : "停止"}
 									</Button>
 								)}
 							</div>
@@ -237,7 +237,7 @@ export const CommandOutputRow = memo(
 				{requestsApproval && (
 					<div className="flex items-center gap-2.5 p-2 text-[12px] text-editor-warning-foreground">
 						<i className="codicon codicon-warning" />
-						<span>The model has determined this command requires explicit approval.</span>
+						<span>模型判定此命令需要显式批准。</span>
 					</div>
 				)}
 			</>
@@ -248,10 +248,10 @@ export const CommandOutputRow = memo(
 CommandOutputRow.displayName = "CommandOutputRow"
 
 const CommandStatusMap = {
-	executing: "Running",
-	pending: "Pending",
-	completed: "Completed",
-	skipped: "Skipped",
+	executing: "运行中",
+	pending: "等待中",
+	completed: "已完成",
+	skipped: "已跳过",
 }
 
 function getCommandStatusText(isExecuting: boolean, isPending: boolean, isCompleted: boolean): string {

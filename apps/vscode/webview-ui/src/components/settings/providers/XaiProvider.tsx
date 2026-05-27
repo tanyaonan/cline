@@ -84,13 +84,13 @@ export const XaiProvider = ({ showModelOptions, isPopup, currentMode }: XaiProvi
 									}
 								}}
 								style={{ marginTop: 0 }}>
-								Modify reasoning effort
+								修改思考强度
 							</VSCodeCheckbox>
 
 							{reasoningEffortSelected && (
 								<div>
 									<label htmlFor="reasoning-effort-dropdown">
-										<span style={{}}>Reasoning Effort</span>
+										<span style={{}}>思考强度</span>
 									</label>
 									<DropdownContainer className="dropdown-container" zIndex={DROPDOWN_Z_INDEX - 100}>
 										<VSCodeDropdown
@@ -115,7 +115,7 @@ export const XaiProvider = ({ showModelOptions, isPopup, currentMode }: XaiProvi
 											marginBottom: 0,
 											color: "var(--vscode-descriptionForeground)",
 										}}>
-										High effort may produce more thorough analysis but takes longer and uses more tokens.
+										高强度思考可能产生更详细的分析，但耗时更长且消耗更多 Token。
 									</p>
 								</div>
 							)}

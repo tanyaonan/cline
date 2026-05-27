@@ -28,31 +28,30 @@ export const QwenCodeProvider = ({ showModelOptions, isPopup, currentMode }: Qwe
 
 	return (
 		<div>
-			<h3 style={{ color: "var(--vscode-foreground)", margin: "8px 0" }}>Qwen Code API Configuration</h3>
+			<h3 style={{ color: "var(--vscode-foreground)", margin: "8px 0" }}>Qwen Code API 配置</h3>
 			<VSCodeTextField
 				onInput={(e: any) => handleFieldChange("qwenCodeOauthPath", e.target.value)}
 				placeholder="~/.qwen/oauth_creds.json"
 				style={{ width: "100%" }}
 				value={apiConfiguration?.qwenCodeOauthPath || ""}>
-				OAuth Credentials Path
+				OAuth 凭证路径
 			</VSCodeTextField>
 			<div style={{ fontSize: "12px", color: "var(--vscode-descriptionForeground)", marginTop: "4px" }}>
-				Path to your Qwen OAuth credentials file. Use ~/.qwen/oauth_creds.json or provide a custom path.
+				Qwen OAuth 凭证文件的路径。使用 ~/.qwen/oauth_creds.json 或提供自定义路径。
 			</div>
 
 			<div style={{ fontSize: "12px", color: "var(--vscode-descriptionForeground)", marginTop: "12px" }}>
-				Qwen Code is an OAuth-based API that requires authentication through the official Qwen client. You'll need to set
-				up OAuth credentials first.
+				Qwen Code 是基于 OAuth 的 API，需要通过官方 Qwen 客户端进行身份验证。你需要先设置 OAuth 凭证。
 			</div>
 
 			<div style={{ fontSize: "12px", color: "var(--vscode-descriptionForeground)", marginTop: "8px" }}>
-				To get started:
+				开始使用：
 				<br />
-				1. Install the official Qwen client
+				1. 安装官方 Qwen 客户端
 				<br />
-				2. Authenticate using your account
+				2. 使用你的账号登录
 				<br />
-				3. OAuth credentials will be stored automatically
+				3. OAuth 凭证将自动保存
 			</div>
 
 			<VSCodeLink
@@ -63,7 +62,7 @@ export const QwenCodeProvider = ({ showModelOptions, isPopup, currentMode }: Qwe
 					display: "inline-block",
 					fontSize: "12px",
 				}}>
-				Setup Instructions
+				设置说明
 			</VSCodeLink>
 
 			{showModelOptions && (

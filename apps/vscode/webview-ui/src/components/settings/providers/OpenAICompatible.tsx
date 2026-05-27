@@ -90,14 +90,14 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 								handleFieldChange("openAiBaseUrl", value)
 								debouncedRefreshOpenAiModels(value, apiConfiguration?.openAiApiKey)
 							}}
-							placeholder={"Enter base URL..."}
+							placeholder={"输入 Base URL..."}
 							style={{ width: "100%", marginBottom: 10 }}
 							type="text"
 						/>
 					</div>
 				</TooltipTrigger>
 				<TooltipContent hidden={remoteConfigSettings?.openAiBaseUrl === undefined}>
-					This setting is managed by your organization's remote configuration
+					此设置由组织的远程配置管理
 				</TooltipContent>
 			</Tooltip>
 
@@ -115,12 +115,12 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 				onChange={(value) =>
 					handleModeFieldChange({ plan: "planModeOpenAiModelId", act: "actModeOpenAiModelId" }, value, currentMode)
 				}
-				placeholder={"Enter Model ID..."}
+				placeholder={"输入 Model ID..."}
 				style={{ width: "100%", marginBottom: 10 }}>
 				<span style={{ fontWeight: 500 }}>Model ID</span>
 			</DebouncedTextField>
 
-			{/* OpenAI Compatible Custom Headers */}
+			{/* OpenAI Compatible 自定义请求头 */}
 			{(() => {
 				const headerEntries = Object.entries(apiConfiguration?.openAiHeaders ?? {})
 
@@ -130,14 +130,14 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 							<Tooltip>
 								<TooltipTrigger>
 									<div className="flex items-center gap-2">
-										<span style={{ fontWeight: 500 }}>Custom Headers</span>
+										<span style={{ fontWeight: 500 }}>自定义请求头</span>
 										{remoteConfigSettings?.openAiHeaders !== undefined && (
 											<i className="codicon codicon-lock text-description text-sm" />
 										)}
 									</div>
 								</TooltipTrigger>
 								<TooltipContent hidden={remoteConfigSettings?.openAiHeaders === undefined}>
-									This setting is managed by your organization's remote configuration
+									此设置由组织的远程配置管理
 								</TooltipContent>
 							</Tooltip>
 							<VSCodeButton
@@ -149,7 +149,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 									currentHeaders[newKey] = ""
 									handleFieldChange("openAiHeaders", currentHeaders)
 								}}>
-								Add Header
+								添加请求头
 							</VSCodeButton>
 						</div>
 
@@ -169,7 +169,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 												})
 											}
 										}}
-										placeholder="Header name"
+										placeholder="请求头名称"
 										style={{ width: "40%" }}
 									/>
 									<DebouncedTextField
@@ -181,7 +181,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 												[key]: newValue,
 											})
 										}}
-										placeholder="Header value"
+										placeholder="请求头值"
 										style={{ width: "40%" }}
 									/>
 									<VSCodeButton
@@ -191,7 +191,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 											const { [key]: _, ...rest } = apiConfiguration?.openAiHeaders ?? {}
 											handleFieldChange("openAiHeaders", rest)
 										}}>
-										Remove
+										删除
 									</VSCodeButton>
 								</div>
 							))}
@@ -206,18 +206,18 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 						<BaseUrlField
 							disabled={true}
 							initialValue={apiConfiguration?.azureApiVersion}
-							label="Set Azure API version"
+							label="设置 Azure API 版本"
 							onChange={(value) => handleFieldChange("azureApiVersion", value)}
 							placeholder={`Default: ${azureOpenAiDefaultApiVersion}`}
 							showLockIcon={true}
 						/>
 					</TooltipTrigger>
-					<TooltipContent>This setting is managed by your organization's remote configuration</TooltipContent>
+					<TooltipContent>此设置由组织的远程配置管理</TooltipContent>
 				</Tooltip>
 			) : (
 				<BaseUrlField
 					initialValue={apiConfiguration?.azureApiVersion}
-					label="Set Azure API version"
+					label="设置 Azure API 版本"
 					onChange={(value) => handleFieldChange("azureApiVersion", value)}
 					placeholder={`Default: ${azureOpenAiDefaultApiVersion}`}
 				/>
@@ -229,7 +229,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 					const isChecked = e.target.checked === true
 					return handleFieldChange("azureIdentity", isChecked)
 				}}>
-				Use Azure Identity Authentication
+				使用 Azure 身份认证
 			</VSCodeCheckbox>
 
 			<div
@@ -252,7 +252,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 						fontWeight: 700,
 						textTransform: "uppercase",
 					}}>
-					Model Configuration
+					模型配置
 				</span>
 			</div>
 
@@ -270,7 +270,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 								currentMode,
 							)
 						}}>
-						Supports Images
+						支持图片
 					</VSCodeCheckbox>
 
 					<VSCodeCheckbox
@@ -286,7 +286,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 								currentMode,
 							)
 						}}>
-						Enable R1 messages format
+						启用 R1 消息格式
 					</VSCodeCheckbox>
 
 					<div style={{ display: "flex", gap: 10, marginTop: "5px" }}>
@@ -306,7 +306,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 								)
 							}}
 							style={{ flex: 1 }}>
-							<span style={{ fontWeight: 500 }}>Context Window Size</span>
+							<span style={{ fontWeight: 500 }}>上下文窗口大小</span>
 						</DebouncedTextField>
 
 						<DebouncedTextField
@@ -325,7 +325,7 @@ export const OpenAICompatibleProvider = ({ showModelOptions, isPopup, currentMod
 								)
 							}}
 							style={{ flex: 1 }}>
-							<span style={{ fontWeight: 500 }}>Max Output Tokens</span>
+							<span style={{ fontWeight: 500 }}>最大输出 Token</span>
 						</DebouncedTextField>
 					</div>
 

@@ -41,11 +41,20 @@ const ReasoningEffortSelector = ({
 					<SelectValue />
 				</SelectTrigger>
 				<SelectContent>
-					{allowedEfforts.map((effort) => (
-						<SelectItem key={effort} value={effort}>
-							{effort.charAt(0).toUpperCase() + effort.slice(1)}
-						</SelectItem>
-					))}
+					{allowedEfforts.map((effort) => {
+						const effortLabels: Record<string, string> = {
+							none: "无",
+							low: "低",
+							medium: "中",
+							high: "高",
+							xhigh: "极高",
+						}
+						return (
+							<SelectItem key={effort} value={effort}>
+								{effortLabels[effort] || effort.charAt(0).toUpperCase() + effort.slice(1)}
+							</SelectItem>
+						)
+					})}
 				</SelectContent>
 			</Select>
 			<p

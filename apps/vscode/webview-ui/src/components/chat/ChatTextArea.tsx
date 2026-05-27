@@ -1372,7 +1372,7 @@ const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 					onDrop={onDrop}>
 					{showDimensionError && (
 						<div className="absolute inset-2.5 bg-[rgba(var(--vscode-errorForeground-rgb),0.1)] border-2 border-error rounded-xs flex items-center justify-center z-10 pointer-events-none">
-							<span className="text-error font-bold text-xs text-center">Image dimensions exceed 7500px</span>
+							<span className="text-error font-bold text-xs text-center">图片尺寸超过 7500px</span>
 						</div>
 					)}
 					{showUnsupportedFileError && (
@@ -1571,11 +1571,11 @@ const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 							</Tooltip>
 
 							<Tooltip>
-								<TooltipContent>Add Files & Images</TooltipContent>
+								<TooltipContent>添加文件和图片</TooltipContent>
 								<TooltipTrigger>
 									<VSCodeButton
 										appearance="icon"
-										aria-label="Add Files & Images"
+										aria-label="添加文件和图片"
 										className="p-0 m-0 flex items-center"
 										data-testid="files-button"
 										disabled={shouldDisableFilesAndImages}
@@ -1602,7 +1602,7 @@ const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 										onClick={handleModelButtonClick}
 										role="button"
 										tabIndex={0}
-										title="Open API Settings">
+										title="打开 API 设置">
 										<ModelButtonContent className="text-xs">{modelDisplayName}</ModelButtonContent>
 									</ModelDisplayButton>
 								</ModelButtonWrapper>
@@ -1615,27 +1615,30 @@ const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 							className="text-xs px-2 flex flex-col gap-1"
 							hidden={shownTooltipMode === null}
 							side="top">
-							{`In ${shownTooltipMode === "act" ? "Act" : "Plan"}  mode, Cline will ${shownTooltipMode === "act" ? "complete the task immediately" : "gather information to architect a plan"}`}
+							{`在${shownTooltipMode === "act" ? "执行" : "计划"}模式下，Cline 将${shownTooltipMode === "act" ? "立即完成任务" : "收集信息以制定计划"}`}
 							<p className="text-description/80 text-xs mb-0">
-								Toggle w/ <kbd className="text-muted-foreground mx-1">{togglePlanActKeys}</kbd>
+							快捷键：<kbd className="text-muted-foreground mx-1">{togglePlanActKeys}</kbd>
 							</p>
 						</TooltipContent>
 						<TooltipTrigger>
 							<SwitchContainer data-testid="mode-switch" disabled={false} onClick={onModeToggle}>
 								<Slider isAct={mode === "act"} isPlan={mode === "plan"} />
-								{["Plan", "Act"].map((m) => (
-									<div
-										aria-checked={mode === m.toLowerCase()}
-										className={cn(
-											"pt-0.5 pb-px px-2 z-10 text-xs w-1/2 text-center bg-transparent",
-											mode === m.toLowerCase() ? "text-white" : "text-input-foreground",
-										)}
-										onMouseLeave={() => setShownTooltipMode(null)}
-										onMouseOver={() => setShownTooltipMode(m.toLowerCase() === "plan" ? "plan" : "act")}
-										role="switch">
-										{m}
-									</div>
-								))}
+								{["计划", "执行"].map((label) => {
+									const m = label === "计划" ? "plan" : "act"
+									return (
+										<div
+											aria-checked={mode === m}
+											className={cn(
+												"pt-0.5 pb-px px-2 z-10 text-xs w-1/2 text-center bg-transparent",
+												mode === m ? "text-white" : "text-input-foreground",
+											)}
+											onMouseLeave={() => setShownTooltipMode(null)}
+											onMouseOver={() => setShownTooltipMode(m === "plan" ? "plan" : "act")}
+											role="switch">
+											{label}
+										</div>
+									)
+								})}
 							</SwitchContainer>
 						</TooltipTrigger>
 					</Tooltip>

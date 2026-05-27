@@ -26,13 +26,13 @@ const isToday = (timestamp: number): boolean => {
 }
 
 const HISTORY_FILTERS = {
-	newest: "Newest",
-	oldest: "Oldest",
-	mostExpensive: "Most Expensive",
-	mostTokens: "Most Tokens",
-	mostRelevant: "Most Relevant",
-	workspaceOnly: "Workspace Only",
-	favoritesOnly: "Favorites Only",
+	newest: "最新",
+	oldest: "最早",
+	mostExpensive: "最贵",
+	mostTokens: "最多 Token",
+	mostRelevant: "最相关",
+	workspaceOnly: "仅当前工作区",
+	favoritesOnly: "仅收藏",
 }
 
 const HistoryView = ({ onDone }: HistoryViewProps) => {
@@ -256,10 +256,10 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 
 		const groups: { tasks: any[]; label: string }[] = []
 		if (todayTasks.length > 0) {
-			groups.push({ tasks: todayTasks, label: "Today" })
+			groups.push({ tasks: todayTasks, label: "今天" })
 		}
 		if (olderTasks.length > 0) {
-			groups.push({ tasks: olderTasks, label: "Older" })
+			groups.push({ tasks: olderTasks, label: "更早" })
 		}
 
 		return {
@@ -292,7 +292,7 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 	return (
 		<div className="fixed overflow-hidden inset-0 flex flex-col w-full">
 			{/* HEADER */}
-			<ViewHeader environment={environment} onDone={onDone} title="History" />
+			<ViewHeader environment={environment} onDone={onDone} title="历史记录" />
 
 			{/* FILTERS */}
 			<div className="flex flex-col gap-3 px-3">
@@ -309,12 +309,12 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 								setSortOption("mostRelevant")
 							}
 						}}
-						placeholder="Fuzzy search history..."
+						placeholder="模糊搜索历史记录..."
 						value={searchQuery}>
 						<div className="codicon codicon-search opacity-80 mt-0.5 !text-sm" slot="start" />
 						{searchQuery && (
 							<div
-								aria-label="Clear search"
+								aria-label="清除搜索"
 								className="input-icon-button codicon codicon-close flex justify-center items-center h-full"
 								onClick={() => setSearchQuery("")}
 								slot="end"
@@ -421,26 +421,26 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 			<div className="p-2.5 border-t border-t-border-panel">
 				<div className="flex gap-2.5 mb-2.5">
 					<Button className="flex-1" onClick={() => handleBatchHistorySelect(true)} variant="secondary">
-						Select All
+						全选
 					</Button>
 					<Button className="flex-1" onClick={() => handleBatchHistorySelect(false)} variant="secondary">
-						Select None
+						取消全选
 					</Button>
 				</div>
 				{selectedItems.length > 0 ? (
 					<Button
-						aria-label="Delete selected items"
+						aria-label="删除选中项目"
 						className="w-full"
 						onClick={() => {
 							handleDeleteSelectedHistoryItems(selectedItems)
 						}}
 						variant="danger">
-						Delete {selectedItems.length > 1 ? selectedItems.length : ""} Selected
+						删除选中{selectedItems.length > 1 ? ` (${selectedItems.length})` : ""}
 						{selectedItemsSize > 0 ? ` (${formatSize(selectedItemsSize)})` : ""}
 					</Button>
 				) : (
 					<Button
-						aria-label="Delete all history"
+						aria-label="删除所有历史记录"
 						className="w-full"
 						disabled={deleteAllDisabled || taskHistory.length === 0}
 						onClick={() => {
@@ -451,7 +451,7 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 								.finally(() => setDeleteAllDisabled(false))
 						}}
 						variant="danger">
-						Delete All History{totalTasksSize !== null ? ` (${formatSize(totalTasksSize)})` : ""}
+						删除所有历史记录{totalTasksSize !== null ? ` (${formatSize(totalTasksSize)})` : ""}
 					</Button>
 				)}
 			</div>

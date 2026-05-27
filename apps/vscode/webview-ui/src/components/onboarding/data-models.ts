@@ -62,12 +62,12 @@ export function getOverviewLabel(overview: number): string {
 export function getCapabilities(modelInfo: OpenRouterModelInfo): string[] {
 	const capabilities = new Set<string>()
 	if (modelInfo.supportsImages) {
-		capabilities.add("Images")
+		capabilities.add("图片")
 	}
 	if (modelInfo.supportsPromptCache) {
-		capabilities.add("Prompt Cache")
+		capabilities.add("提示缓存")
 	}
-	capabilities.add("Tools")
+	capabilities.add("工具")
 	return Array.from(capabilities)
 }
 

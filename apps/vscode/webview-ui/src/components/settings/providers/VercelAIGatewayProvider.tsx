@@ -27,7 +27,7 @@ export const VercelAIGatewayProvider = ({ showModelOptions, isPopup, currentMode
 				<DebouncedTextField
 					initialValue={apiConfiguration?.vercelAiGatewayApiKey || ""}
 					onChange={(value) => handleFieldChange("vercelAiGatewayApiKey", value)}
-					placeholder="Enter API Key..."
+					placeholder="输入 API Key..."
 					style={{ width: "100%" }}
 					type="password">
 					<span style={{ fontWeight: 500 }}>Vercel AI Gateway API Key</span>
@@ -46,7 +46,7 @@ export const VercelAIGatewayProvider = ({ showModelOptions, isPopup, currentMode
 							<VSCodeLink
 								href="https://vercel.com/d?to=%2F%5Bteam%5D%2F%7E%2Fai"
 								style={{ display: "inline", fontSize: "inherit" }}>
-								signing up here.
+								在此注册。
 							</VSCodeLink>
 						</>
 					)}

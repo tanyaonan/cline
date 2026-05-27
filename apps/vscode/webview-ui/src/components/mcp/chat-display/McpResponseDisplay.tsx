@@ -229,7 +229,7 @@ const McpResponseDisplay: React.FC<McpResponseDisplayProps> = ({ responseText })
 						) : (
 							<ChevronRightIcon className="header-icon" size={16} />
 						)}
-						Response
+						响应
 					</div>
 					<DropdownContainer
 						style={{ minWidth: isExpanded ? "auto" : "0", visibility: isExpanded ? "visible" : "hidden" }}>
@@ -262,7 +262,7 @@ const McpResponseDisplay: React.FC<McpResponseDisplayProps> = ({ responseText })
 				</ResponseHeader>
 				{isExpanded && (
 					<div className="response-content">
-						<div style={{ color: "var(--vscode-errorForeground)" }}>Error parsing response:</div>
+						<div style={{ color: "var(--vscode-errorForeground)" }}>解析响应时出错：</div>
 						<UrlText>{responseText}</UrlText>
 					</div>
 				)}

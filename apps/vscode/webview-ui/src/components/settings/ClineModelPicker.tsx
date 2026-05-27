@@ -85,11 +85,11 @@ function toFeaturedModelCardEntry(
 }
 
 const RECOMMENDED_MODELS_FALLBACK: FeaturedModelCardEntry[] = CLINE_RECOMMENDED_MODELS_FALLBACK.recommended
-	.map((model) => toFeaturedModelCardEntry(model, "RECOMMENDED"))
+	.map((model) => toFeaturedModelCardEntry(model, "推荐"))
 	.filter((model): model is FeaturedModelCardEntry => model !== null)
 
 const FREE_MODELS_FALLBACK: FeaturedModelCardEntry[] = CLINE_RECOMMENDED_MODELS_FALLBACK.free
-	.map((model) => toFeaturedModelCardEntry(model, "FREE"))
+	.map((model) => toFeaturedModelCardEntry(model, "免费"))
 	.filter((model): model is FeaturedModelCardEntry => model !== null)
 
 const ClineModelPicker: React.FC<ClineModelPickerProps> = ({ isPopup, currentMode, showProviderRouting, initialTab }) => {
@@ -391,17 +391,17 @@ const ClineModelPicker: React.FC<ClineModelPickerProps> = ({ isPopup, currentMod
 			</style>
 			<div style={{ display: "flex", flexDirection: "column" }}>
 				<label htmlFor="model-search">
-					<span style={{ fontWeight: 500 }}>Model</span>
+					<span style={{ fontWeight: 500 }}>模型</span>
 				</label>
 
 				<>
 					{/* Tabs */}
 					<TabsContainer style={{ marginTop: 4 }}>
 						<Tab active={activeTab === "recommended"} onClick={() => setActiveTab("recommended")}>
-							Recommended
+							推荐
 						</Tab>
 						<Tab active={activeTab === "free"} onClick={() => setActiveTab("free")}>
-							Free
+							免费
 						</Tab>
 					</TabsContainer>
 
@@ -452,7 +452,7 @@ const ClineModelPicker: React.FC<ClineModelPickerProps> = ({ isPopup, currentMod
 							setIsDropdownVisible(true)
 						}}
 						onKeyDown={handleKeyDown}
-						placeholder="Search and select a model..."
+						placeholder="搜索并选择模型..."
 						role="combobox"
 						style={{
 							width: "100%",
@@ -462,7 +462,7 @@ const ClineModelPicker: React.FC<ClineModelPickerProps> = ({ isPopup, currentMod
 						value={searchTerm}>
 						{searchTerm && (
 							<div
-								aria-label="Clear search"
+								aria-label="清除搜索"
 								className="input-icon-button codicon codicon-close"
 								onClick={() => {
 									setSearchTerm("")
@@ -565,10 +565,10 @@ const ClineModelPicker: React.FC<ClineModelPickerProps> = ({ isPopup, currentMod
 							defaultEffort={showAdaptiveThinkingEffort ? adaptiveThinkingDefaultEffort : "medium"}
 							description={
 								showAdaptiveThinkingEffort
-									? "Use None to disable adaptive thinking. Higher effort increases response detail and token usage."
+									? "选择「无」可禁用自适应思考。更高的思考深度会增加响应细节和 token 消耗。"
 									: undefined
 							}
-							label={showAdaptiveThinkingEffort ? "Adaptive Thinking" : undefined}
+							label={showAdaptiveThinkingEffort ? "自适应思考" : undefined}
 						/>
 					)}
 
@@ -588,8 +588,7 @@ const ClineModelPicker: React.FC<ClineModelPickerProps> = ({ isPopup, currentMod
 						marginTop: 0,
 						color: "var(--vscode-descriptionForeground)",
 					}}>
-					The extension automatically fetches the latest Cline model list. If you're unsure which model to choose, Cline
-					works best with <strong>anthropic/claude-sonnet-4.5</strong>.
+					扩展会自动获取最新的 Cline 模型列表。如果不确定选择哪个模型，Cline 与 <strong>anthropic/claude-sonnet-4.5</strong> 配合效果最佳。
 				</p>
 			)}
 		</div>

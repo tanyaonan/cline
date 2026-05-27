@@ -282,7 +282,7 @@ const ApiOptions = ({
 						<TooltipTrigger>
 							<div className="flex items-center gap-2 mb-1">
 								<label htmlFor="api-provider">
-									<span style={{ fontWeight: 500 }}>API Provider</span>
+									<span style={{ fontWeight: 500 }}>API 提供商</span>
 								</label>
 								<i className="codicon codicon-lock text-description text-sm" />
 							</div>
@@ -291,7 +291,7 @@ const ApiOptions = ({
 					</Tooltip>
 				) : (
 					<label htmlFor="api-provider">
-						<span style={{ fontWeight: 500 }}>API Provider</span>
+						<span style={{ fontWeight: 500 }}>API 提供商</span>
 					</label>
 				)}
 				<ProviderDropdownWrapper ref={dropdownRef}>
@@ -307,7 +307,7 @@ const ApiOptions = ({
 							setIsDropdownVisible(true)
 						}}
 						onKeyDown={handleKeyDown}
-						placeholder="Search and select provider..."
+						placeholder="搜索并选择提供商..."
 						role="combobox"
 						style={{
 							width: "100%",
@@ -318,7 +318,7 @@ const ApiOptions = ({
 						value={searchTerm}>
 						{searchTerm && searchTerm !== currentProviderLabel && (
 							<div
-								aria-label="Clear search"
+								aria-label="清除搜索"
 								className="input-icon-button codicon codicon-close"
 								onClick={() => {
 									setSearchTerm("")

@@ -170,7 +170,7 @@ function SubagentPromptText({ prompt, isExpanded, onShowMore }: SubagentPromptTe
 						className="pointer-events-none absolute inset-y-0 -left-[6px] w-[6px]"
 						style={{ background: "linear-gradient(to left, var(--vscode-editor-background), transparent)" }}
 					/>
-					Show more
+					展开
 				</button>
 			)}
 		</div>
@@ -197,7 +197,7 @@ export default function SubagentStatusRow({ message, isLast, lastModifiedMessage
 			resumedBeforeNextVisibleMessage)
 
 	const singular = data.items.length === 1
-	const title = singular ? "Cline wants to use a subagent:" : "Cline wants to use subagents:"
+	const title = singular ? "Cline 想要使用子代理：" : "Cline 想要使用子代理："
 	const isPromptConstructionRow = message.ask === "use_subagents" || message.say === "use_subagents"
 	const toggleItem = (index: number) => {
 		setExpandedItems((prev) => ({
@@ -253,7 +253,7 @@ export default function SubagentStatusRow({ message, isLast, lastModifiedMessage
 							)}
 							{shouldShowStats && hasDetails && (
 								<button
-									aria-label={isExpanded ? "Hide subagent output" : "Show subagent output"}
+									aria-label={isExpanded ? "隐藏子代理输出" : "显示子代理输出"}
 									className="mt-1 text-[11px] opacity-80 flex items-center gap-1 bg-transparent border-0 p-0 cursor-pointer text-left text-foreground w-full"
 									onClick={() => toggleItem(entry.index)}
 									type="button">

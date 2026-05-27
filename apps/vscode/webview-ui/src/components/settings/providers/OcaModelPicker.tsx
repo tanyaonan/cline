@@ -183,12 +183,12 @@ const OcaModelPicker: React.FC<OcaModelPickerProps> = ({
 						minWidth: 0,
 						margin: 0,
 					}}>
-					{loading ? "Refreshing…" : "Refresh"}
+					{loading ? "刷新中…" : "刷新"}
 				</VSCodeButton>
 			</div>
 			{lastRefreshedText ? (
 				<div className="text-[11px] text-(--vscode-descriptionForeground) mt-0 mb-2">
-					Last refreshed at {lastRefreshedText}
+					上次刷新时间：{lastRefreshedText}
 				</div>
 			) : null}
 			{!loading && selectedModelInfo && selectedModelInfo.supportsReasoning && reasoningEffortOptions.length > 0 && (
@@ -244,10 +244,10 @@ const OcaRestrictivePopup: React.FC<{
 			className={`p-6 max-w-[600px] w-[90%] rounded-[8px] [box-shadow:0_4px_24px_0_var(--vscode-widget-shadow,rgba(0,0,0,.4))] [border:1px_solid_var(--vscode-focusBorder,#007acc)] [background:var(--vscode-editor-background,#252526)] [color:var(${VSC_FOREGROUND},#cccccc)] [font-family:var(--vscode-font-family,sans-serif)] [font-size:var(--vscode-font-size,13px)] flex flex-col max-h-[80vh]`}
 			role="dialog">
 			<h2 className={`mt-0 [color:var(${VSC_FOREGROUND},#111)] font-bold`} id="oca-popup-title">
-				Acknowledgement Required
+				需要确认
 			</h2>
 			<h4 className={`mb-2 [color:var(${VSC_DESCRIPTION_FOREGROUND},#b3b3b3)] font-semibold`}>
-				Disclaimer: Prohibited Data Submission
+				免责声明：禁止提交的数据
 			</h4>
 			<div className="overflow-y-auto flex-1 pr-2 mb-4 text-[13px] leading-normal text-(--vscode-foreground,#222) mask-[linear-gradient(to_bottom,black_96%,transparent_100%)]">
 				{bannerText && <div dangerouslySetInnerHTML={{ __html: bannerText }} />}
@@ -260,7 +260,7 @@ const OcaRestrictivePopup: React.FC<{
 						color: `var(${VSC_BUTTON_FOREGROUND}, #fff)`,
 					}}
 					type="button">
-					I acknowledge and agree
+					我已了解并同意
 				</VSCodeButton>
 			</div>
 		</div>

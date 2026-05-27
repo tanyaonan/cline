@@ -96,9 +96,9 @@ export const LMStudioProvider = ({ currentMode }: LMStudioProviderProps) => {
 		<div className="flex flex-col gap-2">
 			<BaseUrlField
 				initialValue={apiConfiguration?.lmStudioBaseUrl}
-				label="Use custom base URL"
+				label="使用自定义 Base URL"
 				onChange={(value) => handleFieldChange("lmStudioBaseUrl", value)}
-				placeholder="Default: http://localhost:1234"
+				placeholder="默认：http://localhost:1234"
 			/>
 
 			<div className="font-semibold">Model</div>
@@ -138,7 +138,7 @@ export const LMStudioProvider = ({ currentMode }: LMStudioProviderProps) => {
 							currentMode,
 						)
 					}
-					placeholder={"e.g. meta-llama-3.1-8b-instruct"}
+					placeholder={"例如 meta-llama-3.1-8b-instruct"}
 					style={{ width: "100%" }}
 				/>
 			)}
@@ -147,7 +147,7 @@ export const LMStudioProvider = ({ currentMode }: LMStudioProviderProps) => {
 			<VSCodeTextField
 				className="w-full pointer-events-none"
 				disabled={true}
-				title="Not editable - the value is returned by the connected endpoint"
+				title="不可编辑 - 该值由连接的端点返回"
 				value={String(currentLoadedContext ?? lmStudioMaxTokens ?? "0")}
 			/>
 

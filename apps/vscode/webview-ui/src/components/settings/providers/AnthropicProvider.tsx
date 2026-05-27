@@ -134,8 +134,8 @@ export const AnthropicProvider = ({ showModelOptions, isPopup, currentMode }: An
 							allowedEfforts={["none", "low", "medium", "high", "xhigh"] as const}
 							currentMode={currentMode}
 							defaultEffort={adaptiveThinkingDefaultEffort}
-							description="Use None to disable adaptive thinking. Higher effort increases response detail and token usage."
-							label="Adaptive Thinking"
+							description="选择「无」可禁用自适应思考。提高思考强度可增加响应细节和 Token 用量。"
+                            label="自适应思考"
 						/>
 					) : SUPPORTED_ANTHROPIC_THINKING_MODELS.includes(selectedModelId) ? (
 						<ThinkingBudgetSlider currentMode={currentMode} maxBudget={selectedModelInfo.thinkingConfig?.maxBudget} />

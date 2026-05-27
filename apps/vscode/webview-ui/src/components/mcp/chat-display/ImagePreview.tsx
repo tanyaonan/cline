@@ -41,7 +41,7 @@ class ImagePreview extends React.Component<
 			if (this.state.loading) {
 				this.setState({
 					loading: false,
-					error: `Timeout loading image: ${this.props.url}`,
+					error: `加载图片超时：${this.props.url}`,
 				})
 			}
 		}, 15000)
@@ -142,7 +142,7 @@ class ImagePreview extends React.Component<
 		console.log(`Image failed to load: ${this.props.url}`)
 		this.setState({
 			loading: false,
-			error: `Failed to load image: ${this.props.url}`,
+			error: `加载图片失败：${this.props.url}`,
 		})
 		this.cleanup()
 	}
@@ -327,7 +327,7 @@ const MemoizedImagePreview = React.memo(
 // Wrap the ImagePreview component with an error boundary
 const ImagePreviewWithErrorBoundary: React.FC<ImagePreviewProps> = (props) => {
 	return (
-		<ChatErrorBoundary errorTitle="Something went wrong displaying this image">
+		<ChatErrorBoundary errorTitle="显示图片时出错">
 			<MemoizedImagePreview {...props} />
 		</ChatErrorBoundary>
 	)

@@ -69,10 +69,10 @@ export const VertexProvider = ({ showModelOptions, isPopup, currentMode }: Verte
 					disabled={remoteConfigSettings?.vertexProjectId !== undefined}
 					initialValue={apiConfiguration?.vertexProjectId || ""}
 					onChange={(value) => handleFieldChange("vertexProjectId", value)}
-					placeholder="Enter Project ID..."
+					placeholder="输入 Project ID..."
 					style={{ width: "100%" }}>
 					<div className="flex items-center gap-2 mb-1">
-						<span style={{ fontWeight: 500 }}>Google Cloud Project ID</span>
+						<span style={{ fontWeight: 500 }}>Google Cloud 项目 ID</span>
 						{remoteConfigSettings?.vertexProjectId !== undefined && <LockIcon />}
 					</div>
 				</DebouncedTextField>
@@ -84,7 +84,7 @@ export const VertexProvider = ({ showModelOptions, isPopup, currentMode }: Verte
 						className="flex items-center gap-2 mb-1"
 						style={{ opacity: remoteConfigSettings?.vertexRegion !== undefined ? 0.4 : 1 }}>
 						<label htmlFor="vertex-region-dropdown">
-							<span className="font-medium">Google Cloud Region</span>
+							<span className="font-medium">Google Cloud 区域</span>
 						</label>
 						{remoteConfigSettings?.vertexRegion !== undefined && <LockIcon />}
 					</div>
@@ -94,7 +94,7 @@ export const VertexProvider = ({ showModelOptions, isPopup, currentMode }: Verte
 						onChange={(e: any) => handleFieldChange("vertexRegion", e.target.value)}
 						style={{ width: "100%" }}
 						value={apiConfiguration?.vertexRegion || ""}>
-						<VSCodeOption value="">Select a region...</VSCodeOption>
+						<VSCodeOption value="">选择一个区域...</VSCodeOption>
 						{REGIONS.map((region) => (
 							<VSCodeOption key={region} value={region}>
 								{region}
@@ -144,8 +144,8 @@ export const VertexProvider = ({ showModelOptions, isPopup, currentMode }: Verte
 							allowedEfforts={["none", "low", "medium", "high", "xhigh"] as const}
 							currentMode={currentMode}
 							defaultEffort={adaptiveThinkingDefaultEffort}
-							description="Use None to disable adaptive thinking. Higher effort increases response detail and token usage."
-							label="Adaptive Thinking"
+							description="选择「无」可禁用自适应思考。提高思考强度可增加响应细节和 Token 用量。"
+							label="自适应思考"
 						/>
 					) : SUPPORTED_THINKING_MODELS.includes(selectedModelId) ? (
 						<ThinkingBudgetSlider currentMode={currentMode} maxBudget={selectedModelInfo.thinkingConfig?.maxBudget} />

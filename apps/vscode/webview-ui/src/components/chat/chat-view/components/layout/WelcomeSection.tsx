@@ -305,7 +305,7 @@ export const WelcomeSection: React.FC<WelcomeSectionProps> = ({
 											</button>
 										</TooltipTrigger>
 										<TooltipContent side="bottom">
-											View and manage git worktrees. Great for running parallel Cline tasks.
+											查看和管理 git 工作树，便于并行运行 Cline 任务。
 										</TooltipContent>
 									</Tooltip>
 								)}

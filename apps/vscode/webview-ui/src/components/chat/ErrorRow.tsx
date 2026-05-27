@@ -65,7 +65,7 @@ const ErrorRow = memo(({ message, errorType, apiRequestFailedMessage, apiReqStre
 						return (
 							<p className="m-0 whitespace-pre-wrap text-error wrap-anywhere">
 								{errorMessage}
-								{requestId && <div>Request ID: {requestId}</div>}
+								{requestId && <div>请求 ID：{requestId}</div>}
 							</p>
 						)
 					}
@@ -80,10 +80,10 @@ const ErrorRow = memo(({ message, errorType, apiRequestFailedMessage, apiReqStre
 							// User is using Cline provider and is not logged in
 							<div className="flex flex-col gap-3">
 								<div className="flex items-center justify-center rounded border border-neutral-500/30 bg-vscode-editor-background p-6 text-center text-vscode-foreground">
-									Whoops looks like you're logged out – click below to sign in
+									看起来您已退出登录 — 点击下方按钮登录
 								</div>
 								<Button className="w-full" disabled={isLoginLoading} onClick={handleSignIn}>
-									Sign in to Cline
+									登录 Cline
 									{isLoginLoading && (
 										<span className="ml-1 animate-spin">
 											<span className="codicon codicon-refresh" />
@@ -94,7 +94,7 @@ const ErrorRow = memo(({ message, errorType, apiRequestFailedMessage, apiReqStre
 						) : (
 							// Don't show sign in button after the user has logged in, just ask them to retry
 							<div className="mt-4">
-								<span className="text-description">(Click "Retry" below)</span>
+								<span className="text-description">（点击下方的"重试"）</span>
 							</div>
 						)
 					}
@@ -107,19 +107,19 @@ const ErrorRow = memo(({ message, errorType, apiRequestFailedMessage, apiReqStre
 								{providerId && <span className="uppercase">[{providerId}] </span>}
 								{errorCode && <span>{errorCode}</span>}
 								{errorMessage}
-								{requestId && <div>Request ID: {requestId}</div>}
+								{requestId && <div>请求 ID：{requestId}</div>}
 							</header>
 
 							{/* Windows Powershell Issue */}
 							{errorMessage?.toLowerCase()?.includes("powershell") && (
 								<div>
-									It seems like you're having Windows PowerShell issues, please see this{" "}
+									看起来您遇到了 Windows PowerShell 的问题，请查看此{" "}
 									<a
 										className="underline text-inherit"
 										href="https://github.com/cline/cline/wiki/TroubleShooting-%E2%80%90-%22PowerShell-is-not-recognized-as-an-internal-or-external-command%22">
-										troubleshooting guide
+										故障排除指南
 									</a>
-									.
+									。
 								</div>
 							)}
 
@@ -127,7 +127,7 @@ const ErrorRow = memo(({ message, errorType, apiRequestFailedMessage, apiReqStre
 							{errorMessage !== rawApiError && <div>{rawApiError}</div>}
 
 							<div className="mt-4">
-								<span className="text-description">(Click "Retry" below)</span>
+								<span className="text-description">（点击下方的"重试"）</span>
 							</div>
 						</p>
 					)
@@ -139,7 +139,7 @@ const ErrorRow = memo(({ message, errorType, apiRequestFailedMessage, apiReqStre
 			case "diff_error":
 				return (
 					<div className="flex flex-col p-2 rounded text-xs opacity-80 bg-quote text-foreground">
-						<div>The model used search patterns that don't match anything in the file. Retrying...</div>
+						<div>模型使用的搜索模式与文件内容不匹配，正在重试...</div>
 					</div>
 				)
 
@@ -147,8 +147,8 @@ const ErrorRow = memo(({ message, errorType, apiRequestFailedMessage, apiReqStre
 				return (
 					<div className="flex flex-col p-2 rounded text-xs opacity-80 bg-quote text-foreground">
 						<div>
-							Cline tried to access <code>{message.text}</code> which is blocked by the <code>.clineignore</code>
-							file.
+							Cline 尝试访问 <code>{message.text}</code>，但该路径被 <code>.clineignore</code>
+							文件拦截。
 						</div>
 					</div>
 				)

@@ -125,16 +125,16 @@ const HistoryPreview = ({ showHistoryView }: HistoryPreviewProps) => {
 							fontSize: "0.85em",
 							textTransform: "uppercase",
 						}}>
-						Recent
+						最近
 					</span>
 				</div>
 				{taskHistory.filter((item) => item.ts && item.task).length > 0 && (
 					<button
-						aria-label="View all history"
+						aria-label="查看所有历史记录"
 						className="history-view-all-btn"
 						onClick={() => showHistoryView()}
 						type="button">
-						View All
+						查看全部
 						<span className="codicon codicon-chevron-right" />
 					</button>
 				)}
@@ -151,7 +151,7 @@ const HistoryPreview = ({ showHistoryView }: HistoryPreviewProps) => {
 									<div className="history-task-content">
 										{item.isFavorited && (
 											<span
-												aria-label="Favorited"
+												aria-label="已收藏"
 												className="codicon codicon-star-full"
 												style={{
 													color: "var(--vscode-button-background)",
@@ -177,7 +177,7 @@ const HistoryPreview = ({ showHistoryView }: HistoryPreviewProps) => {
 								fontSize: "var(--vscode-font-size)",
 								padding: "10px 0",
 							}}>
-							No recent tasks
+							暂无最近任务
 						</div>
 					)}
 				</div>

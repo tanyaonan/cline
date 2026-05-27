@@ -38,7 +38,7 @@ export const ZAiProvider = ({ showModelOptions, isPopup, currentMode }: ZAiProvi
 		<div>
 			<DropdownContainer className="dropdown-container" style={{ position: "inherit" }}>
 				<label htmlFor="zai-entrypoint">
-					<span style={{ fontWeight: 500, marginTop: 5 }}>Z AI Entrypoint</span>
+					<span style={{ fontWeight: 500, marginTop: 5 }}>Z AI 入口</span>
 				</label>
 				<VSCodeDropdown
 					id="zai-entrypoint"
@@ -58,8 +58,7 @@ export const ZAiProvider = ({ showModelOptions, isPopup, currentMode }: ZAiProvi
 					marginTop: 3,
 					color: "var(--vscode-descriptionForeground)",
 				}}>
-				Please select the appropriate API entrypoint based on your location. If you are in China, choose open.bigmodel.cn
-				. Otherwise, choose api.z.ai.
+				请根据你的所在地选择相应的 API 入口。如果你在中国境内，请选择 open.bigmodel.cn。否则，请选择 api.z.ai。
 			</p>
 			<ApiKeyField
 				initialValue={apiConfiguration?.zaiApiKey || ""}

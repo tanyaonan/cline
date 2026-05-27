@@ -47,7 +47,7 @@ const AccountView = ({ onDone, clineUser, organizations, activeOrganization }: A
 
 	return (
 		<div className="fixed inset-0 flex flex-col overflow-hidden">
-			<ViewHeader environment={environment} onDone={onDone} showEnvironmentSuffix title="Account" />
+			<ViewHeader environment={environment} onDone={onDone} showEnvironmentSuffix title="账户" />
 			<div className="grow flex flex-col px-5 overflow-y-auto">
 				{clineUser?.uid ? (
 					<ClineAccountView
@@ -328,7 +328,7 @@ export const ClineAccountView = ({ clineUser, userOrganizations, activeOrganizat
 											disabled={isLoading || isLockedByRemoteConfig}
 											onChange={handleOrganizationChange}>
 											<VSCodeOption key="personal" value={uid}>
-												Personal
+												个人
 											</VSCodeOption>
 											{userOrganizations?.map((org: UserOrganization) => (
 												<VSCodeOption key={org.organizationId} value={org.organizationId}>
@@ -338,7 +338,7 @@ export const ClineAccountView = ({ clineUser, userOrganizations, activeOrganizat
 										</VSCodeDropdown>
 									</TooltipTrigger>
 									<TooltipContent hidden={!isLockedByRemoteConfig}>
-										This cannot be changed while your organization has remote configuration enabled.
+										组织启用远程配置时，此项无法更改。
 									</TooltipContent>
 								</Tooltip>
 								{activeOrganization && (
@@ -357,11 +357,11 @@ export const ClineAccountView = ({ clineUser, userOrganizations, activeOrganizat
 				<div className="w-full flex gap-2 flex-col min-[225px]:flex-row">
 					<div className="w-full min-[225px]:w-1/2">
 						<VSCodeButtonLink appearance="primary" className="w-full" href={getClineUris(clineUrl, "dashboard").href}>
-							Dashboard
+							仪表板
 						</VSCodeButtonLink>
 					</div>
 					<VSCodeButton appearance="secondary" className="w-full min-[225px]:w-1/2" onClick={() => handleSignOut()}>
-						Log out
+						退出登录
 					</VSCodeButton>
 				</div>
 
@@ -390,7 +390,7 @@ export const ClineAccountView = ({ clineUser, userOrganizations, activeOrganizat
 				{isClineTester && environment !== "selfHosted" && (
 					<div className="w-full gap-1 items-end">
 						<VSCodeDivider className="w-full my-3" />
-						<div className="text-sm font-semibold">Cline Environment</div>
+						<div className="text-sm font-semibold">Cline 环境</div>
 						<VSCodeDropdown
 							className="w-full mt-1"
 							currentValue={clineEnv}

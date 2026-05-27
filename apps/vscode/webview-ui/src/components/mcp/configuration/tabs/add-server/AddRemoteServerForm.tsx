@@ -97,7 +97,7 @@ const AddRemoteServerForm = ({ onServerAdded }: { onServerAdded: () => void }) =
 						}}
 						placeholder="https://example.com/mcp-server"
 						value={serverUrl}>
-						Server URL
+						服务 URL
 					</VSCodeTextField>
 				</div>
 
@@ -133,7 +133,7 @@ const AddRemoteServerForm = ({ onServerAdded }: { onServerAdded: () => void }) =
 						})
 					}}
 					style={{ width: "100%", marginBottom: "5px", marginTop: 15 }}>
-					Edit Configuration
+					编辑配置
 				</VSCodeButton>
 			</form>
 		</div>

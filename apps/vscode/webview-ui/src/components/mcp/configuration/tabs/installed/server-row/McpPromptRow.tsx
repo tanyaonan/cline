@@ -50,7 +50,7 @@ const McpPromptRow = ({ prompt, serverName }: McpPromptRowProps) => {
 							fontSize: "11px",
 							textTransform: "uppercase",
 						}}>
-						Arguments
+						参数
 					</div>
 					{prompt.arguments.map((arg) => (
 						<div

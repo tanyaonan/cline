@@ -60,17 +60,17 @@ export const OllamaProvider = ({ showModelOptions, isPopup, currentMode }: Ollam
 		<div className="flex flex-col gap-2">
 			<BaseUrlField
 				initialValue={apiConfiguration?.ollamaBaseUrl}
-				label="Use custom base URL"
+				label="使用自定义 Base URL"
 				onChange={(value) => handleFieldChange("ollamaBaseUrl", value)}
-				placeholder="Default: http://localhost:11434"
+				placeholder="默认：http://localhost:11434"
 			/>
 
 			{apiConfiguration?.ollamaBaseUrl && (
 				<ApiKeyField
-					helpText="Optional API key for authenticated Ollama instances or cloud services. Leave empty for local installations."
+					helpText="可选 API Key，用于需要身份验证的 Ollama 实例或云服务。本地安装留空即可。"
 					initialValue={apiConfiguration?.ollamaApiKey || ""}
 					onChange={(value) => handleFieldChange("ollamaApiKey", value)}
-					placeholder="Enter API Key (optional)..."
+					placeholder="输入 API Key（可选）..."
 					providerName="Ollama"
 				/>
 			)}
@@ -84,22 +84,21 @@ export const OllamaProvider = ({ showModelOptions, isPopup, currentMode }: Ollam
 				onModelChange={(modelId) => {
 					handleModeFieldChange({ plan: "planModeOllamaModelId", act: "actModeOllamaModelId" }, modelId, currentMode)
 				}}
-				placeholder={ollamaModels.length > 0 ? "Search and select a model..." : "e.g. llama3.1"}
+				placeholder={ollamaModels.length > 0 ? "搜索并选择模型..." : "例如 llama3.1"}
 				selectedModelId={ollamaModelId || ""}
 			/>
 
 			{/* Show status message based on model availability */}
 			{ollamaModels.length === 0 && (
 				<p className="text-sm mt-1 text-description italic">
-					Unable to fetch models from Ollama server. Please ensure Ollama is running and accessible, or enter the model
-					ID manually above.
+					无法从 Ollama 服务器获取模型。请确保 Ollama 正在运行且可访问，或在上方手动输入模型 ID。
 				</p>
 			)}
 
 			<DebouncedTextField
 				initialValue={apiConfiguration?.ollamaApiOptionsCtxNum || "32768"}
 				onChange={(v) => handleFieldChange("ollamaApiOptionsCtxNum", v || undefined)}
-				placeholder={"e.g. 32768"}
+				placeholder={"例如 32768"}
 				style={{ width: "100%" }}>
 				<span className="font-semibold">Model Context Window</span>
 			</DebouncedTextField>
@@ -115,12 +114,12 @@ export const OllamaProvider = ({ showModelOptions, isPopup, currentMode }: Ollam
 								handleFieldChange("requestTimeoutMs", numValue)
 							}
 						}}
-						placeholder="Default: 30000 (30 seconds)"
+						placeholder="默认：30000（30 秒）"
 						style={{ width: "100%" }}>
-						<span className="font-semibold">Request Timeout (ms)</span>
+						<span className="font-semibold">请求超时（毫秒）</span>
 					</DebouncedTextField>
 					<p className="text-xs mt-0 text-description">
-						Maximum time in milliseconds to wait for API responses before timing out.
+						等待 API 响应的最长时间（毫秒），超时将中断请求。
 					</p>
 				</>
 			)}

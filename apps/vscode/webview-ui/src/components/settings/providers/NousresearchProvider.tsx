@@ -58,8 +58,7 @@ export const NousResearchProvider = ({ showModelOptions, isPopup, currentMode }:
 							color: "var(--vscode-descriptionForeground)",
 						}}>
 						<span style={{ color: "var(--vscode-errorForeground)" }}>
-							(<span style={{ fontWeight: 500 }}>Note:</span> Cline uses complex prompts and works best with Claude
-							models. Less capable models may not work as expected.)
+							(<span style={{ fontWeight: 500 }}>注意：</span>Cline 使用复杂的提示词，与 Claude 模型配合效果最佳。能力较弱的模型可能无法达到预期效果。)
 						</span>
 					</p>
 				</>

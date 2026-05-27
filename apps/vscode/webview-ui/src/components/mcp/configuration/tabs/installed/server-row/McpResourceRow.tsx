@@ -35,7 +35,7 @@ const McpResourceRow = ({ item }: McpResourceRowProps) => {
 						? item.description
 						: !item.description && item.name
 							? item.name
-							: "No description"}
+							: "无描述"}
 			</div>
 			<div
 				style={{
@@ -49,7 +49,7 @@ const McpResourceRow = ({ item }: McpResourceRowProps) => {
 						padding: "1px 4px",
 						borderRadius: "3px",
 					}}>
-					{item.mimeType || "Unknown"}
+					{item.mimeType || "未知"}
 				</code>
 			</div>
 		</div>

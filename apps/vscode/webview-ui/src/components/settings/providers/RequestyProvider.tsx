@@ -54,7 +54,7 @@ export const RequestyProvider = ({ showModelOptions, isPopup, currentMode }: Req
 						}
 					}}
 					style={{ margin: "5px 0 0 0" }}>
-					Get Requesty API Key
+					获取 Requesty API Key
 				</VSCodeButton>
 			)}
 			<VSCodeCheckbox
@@ -67,7 +67,7 @@ export const RequestyProvider = ({ showModelOptions, isPopup, currentMode }: Req
 						handleFieldChange("requestyBaseUrl", undefined)
 					}
 				}}>
-				Use custom base URL
+				使用自定义 Base URL
 			</VSCodeCheckbox>
 			{requestyEndpointSelected && (
 				<DebouncedTextField
@@ -79,7 +79,7 @@ export const RequestyProvider = ({ showModelOptions, isPopup, currentMode }: Req
 							handleFieldChange("requestyBaseUrl", value)
 						}
 					}}
-					placeholder="Custom base URL"
+					placeholder="自定义 Base URL"
 					style={{ width: "100%", marginBottom: 5 }}
 					type="text"
 				/>

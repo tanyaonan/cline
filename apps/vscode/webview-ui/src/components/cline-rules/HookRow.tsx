@@ -60,7 +60,7 @@ const HookRow: React.FC<HookRowProps> = ({
 					<div
 						title={
 							isWindows
-								? "Hook toggling is not yet supported on Windows in this foundation PR. Hooks execute when the hook file exists."
+								? "在此基础 PR 中，Windows 上尚不支持钩子切换。钩子文件存在时即会执行。"
 								: undefined
 						}>
 						<Switch
@@ -72,14 +72,14 @@ const HookRow: React.FC<HookRowProps> = ({
 							style={isWindows ? { opacity: 0.5, cursor: "not-allowed" } : undefined}
 						/>
 					</div>
-					<Button aria-label="Edit hook file" onClick={handleEditClick} size="xs" title="Edit hook file" variant="icon">
+					<Button aria-label="编辑钩子文件" onClick={handleEditClick} size="xs" title="编辑钩子文件" variant="icon">
 						<PenIcon />
 					</Button>
 					<Button
-						aria-label="Delete hook file"
+						aria-label="删除钩子文件"
 						onClick={handleDeleteClick}
 						size="xs"
-						title="Delete hook file"
+						title="删除钩子文件"
 						variant="icon">
 						<Trash2Icon />
 					</Button>

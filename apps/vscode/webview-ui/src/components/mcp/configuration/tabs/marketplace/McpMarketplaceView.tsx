@@ -185,7 +185,7 @@ const McpMarketplaceView = () => {
 							fontWeight: 500,
 							flexShrink: 0,
 						}}>
-						Filter:
+						筛选：
 					</span>
 					<div
 						style={{
@@ -281,8 +281,8 @@ const McpMarketplaceView = () => {
 							color: "var(--vscode-descriptionForeground)",
 						}}>
 						{searchQuery || selectedCategory
-							? "No matching MCP servers found"
-							: "No MCP servers found in the marketplace"}
+							? "未找到匹配的 MCP 服务"
+							: "市场中未找到 MCP 服务"}
 					</div>
 				) : (
 					filteredItems.map((item) => (

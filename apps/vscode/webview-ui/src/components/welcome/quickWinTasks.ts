@@ -29,8 +29,8 @@ export const quickWinTasks: QuickWinTask[] = [
 	},
 	{
 		id: "snake_game",
-		title: "Develop a Game",
-		description: "Code a classic Snake game that runs in the browser.",
+		title: "开发游戏",
+                description: "编写一个在浏览器中运行的经典贪吃蛇游戏",
 		icon: "GameIcon",
 		actionCommand: "cline/createSnakeGame",
 		prompt: "Make a classic Snake game using HTML, CSS, and JavaScript. The game should be playable in the browser, with keyboard controls for the snake, a scoring system, and a game over state.",

@@ -12,43 +12,43 @@ type UserTypeSelection = {
 
 export const STEP_CONFIG = {
 	0: {
-		title: "How will you use Cline?",
-		description: "Select an option below to get started.",
+		title: "你打算如何使用 Cline？",
+		description: "选择一个选项以开始使用。",
 		buttons: [
-			{ text: "Continue", action: "next", variant: "default" },
-			{ text: "Login to Cline", action: "signin", variant: "secondary" },
+			{ text: "继续", action: "next", variant: "default" },
+			{ text: "登录 Cline", action: "signin", variant: "secondary" },
 		],
 	},
 	[NEW_USER_TYPE.FREE]: {
-		title: "Select a free model",
+		title: "选择免费模型",
 		buttons: [
-			{ text: "Create my Account", action: "signup", variant: "default" },
-			{ text: "Back", action: "back", variant: "secondary" },
+			{ text: "创建我的账户", action: "signup", variant: "default" },
+			{ text: "返回", action: "back", variant: "secondary" },
 		],
 	},
 	[NEW_USER_TYPE.POWER]: {
-		title: "Select your model",
+		title: "选择你的模型",
 		buttons: [
-			{ text: "Create my Account", action: "signup", variant: "default" },
-			{ text: "Back", action: "back", variant: "secondary" },
+			{ text: "创建我的账户", action: "signup", variant: "default" },
+			{ text: "返回", action: "back", variant: "secondary" },
 		],
 	},
 	[NEW_USER_TYPE.BYOK]: {
-		title: "Configure your provider",
+		title: "配置你的提供商",
 		buttons: [
-			{ text: "Continue", action: "done", variant: "default" },
-			{ text: "Back", action: "back", variant: "secondary" },
+			{ text: "继续", action: "done", variant: "default" },
+			{ text: "返回", action: "back", variant: "secondary" },
 		],
 	},
 	2: {
-		title: "Almost there!",
-		description: "Complete account creation in your browser. Then come back here to finish up.",
-		buttons: [{ text: "Back", action: "back", variant: "secondary" }],
+		title: "快完成了！",
+		description: "在浏览器中完成账户创建，然后返回这里完成最后步骤。",
+		buttons: [{ text: "返回", action: "back", variant: "secondary" }],
 	},
 } as const
 
 export const USER_TYPE_SELECTIONS: UserTypeSelection[] = [
-	{ title: "Absolutely Free", description: "Get started at no cost", type: NEW_USER_TYPE.FREE },
-	{ title: "Frontier Model", description: "Claude, GPT Codex, Gemini, etc.", type: NEW_USER_TYPE.POWER },
-	{ title: "Bring my own API key", description: "Use Cline with your provider of choice", type: NEW_USER_TYPE.BYOK },
+	{ title: "完全免费", description: "无需任何费用即可开始使用", type: NEW_USER_TYPE.FREE },
+	{ title: "前沿模型", description: "Claude、GPT Codex、Gemini 等", type: NEW_USER_TYPE.POWER },
+	{ title: "自带 API 密钥", description: "使用你偏好的提供商来使用 Cline", type: NEW_USER_TYPE.BYOK },
 ]

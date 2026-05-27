@@ -183,7 +183,7 @@ export const CheckmarkControl = ({ messageTs, isCheckpointCheckedOut }: Checkmar
 					className={cn("text-[9px] text-description shrink-0", {
 						"text-link": isCheckpointCheckedOut,
 					})}>
-					{isCheckpointCheckedOut ? "Checkpoint (restored)" : "Checkpoint"}
+					{isCheckpointCheckedOut ? "检查点（已恢复）" : "检查点"}
 				</span>
 				<DottedLine $isCheckedOut={isCheckpointCheckedOut} />
 				<ButtonGroup>
@@ -231,13 +231,13 @@ export const CheckmarkControl = ({ messageTs, isCheckpointCheckedOut }: Checkmar
 												cursor: restoreBothDisabled ? "wait" : "pointer",
 											}}>
 											<i className="codicon codicon-debug-restart" style={{ marginRight: "6px" }} />
-											Restore Files & Task
+											恢复文件与任务
 										</Button>
-										<p>Revert files and clear messages after this point</p>
+										<p>恢复文件并清空此后的消息</p>
 									</PrimaryRestoreOption>
 
 									<MoreOptionsToggle onClick={() => setShowMoreOptions(!showMoreOptions)}>
-										More options
+										更多选项
 										<i
 											className={`codicon codicon-chevron-${showMoreOptions ? "up" : "down"}`}
 											style={{ marginLeft: "4px", fontSize: "10px" }}
@@ -262,9 +262,9 @@ export const CheckmarkControl = ({ messageTs, isCheckpointCheckedOut }: Checkmar
 														className="codicon codicon-file-symlink-directory"
 														style={{ marginRight: "6px" }}
 													/>
-													Restore Files Only
+													仅恢复文件
 												</Button>
-												<p>Revert files to this checkpoint</p>
+												<p>将文件恢复到该检查点</p>
 											</RestoreOption>
 											<RestoreOption>
 												<Button
@@ -278,9 +278,9 @@ export const CheckmarkControl = ({ messageTs, isCheckpointCheckedOut }: Checkmar
 														className="codicon codicon-comment-discussion"
 														style={{ marginRight: "6px" }}
 													/>
-													Restore Task Only
+													仅恢复任务
 												</Button>
-												<p>Clear messages after this point</p>
+												<p>清空此后的消息</p>
 											</RestoreOption>
 										</AdditionalOptions>
 									)}

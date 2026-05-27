@@ -30,12 +30,12 @@ import McpToolRow from "./McpToolRow"
 
 // constant JSX.Elements
 const TimeoutOptions = [
-	{ value: "30", label: "30 seconds" },
-	{ value: "60", label: "1 minute" },
-	{ value: "300", label: "5 minutes" },
-	{ value: "600", label: "10 minutes" },
-	{ value: "1800", label: "30 minutes" },
-	{ value: "3600", label: "1 hour" },
+	{ value: "30", label: "30 秒" },
+	{ value: "60", label: "1 分钟" },
+	{ value: "300", label: "5 分钟" },
+	{ value: "600", label: "10 分钟" },
+	{ value: "1800", label: "30 分钟" },
+	{ value: "3600", label: "1 小时" },
 ].map((option) => (
 	<VSCodeOption key={option.value} value={option.value}>
 		{option.label}
@@ -282,14 +282,14 @@ const ServerRow = ({
 					<div className="text-failed-icon mb-2 px-2.5 break-words">{server.error}</div>
 					{server.oauthRequired && server.oauthAuthStatus === "unauthenticated" ? (
 						<Button
-							className="m-2.5 mt-0 max-w-[calc(100%-20px)]"
-							onClick={(e) => {
-								e.stopPropagation()
-								McpServiceClient.authenticateMcpServer(StringRequest.create({ value: server.name }))
-							}}
-							variant="default">
-							Authenticate
-						</Button>
+										className="m-2.5 mt-0 max-w-[calc(100%-20px)]"
+										onClick={(e) => {
+											e.stopPropagation()
+											McpServiceClient.authenticateMcpServer(StringRequest.create({ value: server.name }))
+										}}
+										variant="default">
+										身份验证
+									</Button>
 					) : (
 						<Button
 							className="m-2.5 mt-0 max-w-[calc(100%-20px)]"
@@ -306,7 +306,7 @@ const ServerRow = ({
 							disabled={isDeleting}
 							onClick={handleDelete}
 							variant="danger">
-							{isDeleting ? "Deleting..." : "Delete Server"}
+							{isDeleting ? "删除中..." : "删除服务"}
 						</Button>
 					)}
 				</div>
@@ -353,7 +353,7 @@ const ServerRow = ({
 										))}
 									</div>
 								) : (
-									<div className="py-2.5 text-description">No resources found</div>
+									<div className="py-2.5 text-description">未找到资源</div>
 								)}
 							</VSCodePanelView>
 
@@ -384,7 +384,7 @@ const ServerRow = ({
 						</VSCodePanels>
 
 						<div className="my-2.5 mx-1.5">
-							<label className="block mb-1 text-[13px]">Request Timeout</label>
+							<label className="block mb-1 text-[13px]">请求超时</label>
 							<VSCodeDropdown className="w-full" onChange={handleTimeoutChange} value={timeoutValue}>
 								{TimeoutOptions}
 							</VSCodeDropdown>
@@ -394,7 +394,7 @@ const ServerRow = ({
 							disabled={server.status === "connecting" || isRestarting || server.disabled}
 							onClick={handleRestart}
 							variant="secondary">
-							{server.status === "connecting" || isRestarting ? "Restarting..." : server.disabled ? "Server Disabled" : "Restart Server"}
+							{server.status === "connecting" || isRestarting ? "重启中..." : server.disabled ? "服务已禁用" : "重启服务"}
 						</Button>
 
 						{!isRemoteManagedServer && (

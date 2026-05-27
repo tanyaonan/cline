@@ -32,15 +32,15 @@ const ConnectionStatusIndicator = ({
 			{isChecking ? (
 				<>
 					<Spinner />
-					<StatusText>Checking connection...</StatusText>
+					<StatusText>正在检查连接...</StatusText>
 				</>
 			) : isConnected === true ? (
 				<>
 					<CheckIcon className="codicon codicon-check" />
-					<StatusText style={{ color: "var(--vscode-terminal-ansiGreen)" }}>Connected</StatusText>
+					<StatusText style={{ color: "var(--vscode-terminal-ansiGreen)" }}>已连接</StatusText>
 				</>
 			) : isConnected === false ? (
-				<StatusText style={{ color: "var(--vscode-errorForeground)" }}>Not connected</StatusText>
+				<StatusText style={{ color: "var(--vscode-errorForeground)" }}>未连接</StatusText>
 			) : null}
 		</StatusContainer>
 	)
@@ -167,7 +167,7 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 							onChange={(e) =>
 								updateSetting("browserSettings", { disableToolUse: (e.target as HTMLInputElement).checked })
 							}>
-							Disable browser tool usage
+							禁用浏览器工具使用
 						</VSCodeCheckbox>
 						<p
 							style={{
@@ -175,14 +175,14 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 								color: "var(--vscode-descriptionForeground)",
 								margin: "4px 0 0 0px",
 							}}>
-							Prevent Cline from using browser actions (e.g. launch, click, type).
+							阻止 Cline 使用浏览器操作（如启动、点击、输入）。
 						</p>
 					</div>
 
 					<CollapsibleContent isOpen={isSubSettingsOpen}>
 						<div style={{ marginBottom: 15 }}>
 							<div style={{ marginBottom: 8 }}>
-								<label style={{ fontWeight: "500", display: "block", marginBottom: 5 }}>Viewport size</label>
+								<label style={{ fontWeight: "500", display: "block", marginBottom: 5 }}>视口大小</label>
 								<VSCodeDropdown
 									onChange={(event) => handleViewportChange(event as Event)}
 									style={{ width: "100%" }}
@@ -208,7 +208,7 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 									color: "var(--vscode-descriptionForeground)",
 									margin: 0,
 								}}>
-								Set the size of the browser viewport for screenshots and interactions.
+								设置浏览器视口的大小，用于截图和交互操作。
 							</p>
 						</div>
 
@@ -232,7 +232,7 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 											updateSetting("browserSettings", { remoteBrowserHost: undefined })
 										}
 									}}>
-									Use remote browser connection
+									使用远程浏览器连接
 								</VSCodeCheckbox>
 								<ConnectionStatusIndicator
 									isChecking={isCheckingConnection}
@@ -246,22 +246,20 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 									color: "var(--vscode-descriptionForeground)",
 									margin: "0 0 6px 0px",
 								}}>
-								Enable Cline to use your Chrome
+								启用 Cline 使用你的 Chrome 浏览器
 								{isBundled
-									? "(not detected on your machine)"
+									? "（在你的机器上未检测到）"
 									: detectedChromePath
 										? ` (${detectedChromePath})`
 										: ""}
-								. You can specify a custom path below. Using a remote browser connection requires starting Chrome
-								in debug mode
+								。你可以在下方指定自定义路径。使用远程浏览器连接需要以调试模式启动 Chrome
 								{browserSettings.remoteBrowserEnabled ? (
 									<>
 										{" "}
-										manually (<code>--remote-debugging-port=9222</code>) or using the button below. Enter the
-										host address or leave it blank for automatic discovery.
+										（通过 <code>--remote-debugging-port=9222</code> 参数或使用下方按钮手动启动）。输入主机地址，或留空以自动发现。
 									</>
 								) : (
-									"."
+									"。"
 								)}
 							</p>
 							{/* Moved remote-specific settings to appear directly after enabling remote connection */}
@@ -282,7 +280,7 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 												disabled={debugMode}
 												onClick={relaunchChromeDebugMode}
 												style={{ flex: 1 }}>
-												{debugMode ? "Launching Browser..." : "Launch Browser with Debug Mode"}
+												{debugMode ? "正在启动浏览器..." : "以调试模式启动浏览器"}
 											</VSCodeButton>
 										</div>
 									)}
@@ -320,13 +318,13 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 								<label
 									htmlFor="chrome-executable-path"
 									style={{ fontWeight: "500", display: "block", marginBottom: 5 }}>
-									Chrome Executable Path (Optional)
+									Chrome 可执行文件路径（可选）
 								</label>
 								<DebouncedTextField
 									id="chrome-executable-path"
 									initialValue={browserSettings.chromeExecutablePath || ""}
 									onChange={(value) => updateSetting("browserSettings", { chromeExecutablePath: value })}
-									placeholder="e.g., /usr/bin/google-chrome or C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+									placeholder="例如：/usr/bin/google-chrome 或 C:\Program Files\Google\Chrome\Application\chrome.exe"
 									style={{ width: "100%" }}
 								/>
 								<p
@@ -335,7 +333,7 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 										color: "var(--vscode-descriptionForeground)",
 										margin: "4px 0 0 0",
 									}}>
-									Leave blank to auto-detect.
+									留空则自动检测。
 								</p>
 							</div>
 							{/* Custom Browser Arguments section */}
@@ -343,13 +341,13 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 								<label
 									htmlFor="custom-browser-args"
 									style={{ fontWeight: "500", display: "block", marginBottom: 5 }}>
-									Custom Browser Arguments (Optional)
+									自定义浏览器参数（可选）
 								</label>
 								<DebouncedTextField
 									id="custom-browser-args"
 									initialValue={browserSettings.customArgs || ""}
 									onChange={(value) => updateSetting("browserSettings", { customArgs: value })}
-									placeholder="e.g., --no-sandbox --disable-setuid-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run --no-zygote"
+									placeholder="例如：--no-sandbox --disable-setuid-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run --no-zygote"
 									style={{ width: "100%" }}
 								/>
 								<p
@@ -358,7 +356,7 @@ export const BrowserSettingsSection: React.FC<BrowserSettingsSectionProps> = ({ 
 										color: "var(--vscode-descriptionForeground)",
 										margin: "4px 0 0 0",
 									}}>
-									Space-separated arguments to pass to the browser executable.
+									以空格分隔的参数，传递给浏览器可执行文件。
 								</p>
 							</div>
 						</div>

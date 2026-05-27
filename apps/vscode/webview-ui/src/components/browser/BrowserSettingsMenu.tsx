@@ -173,7 +173,7 @@ export const BrowserSettingsMenu = () => {
 									? "var(--vscode-charts-green)"
 									: "var(--vscode-errorForeground)",
 							}}>
-							{connectionInfo.isConnected ? "Connected" : "Disconnected"}
+							{connectionInfo.isConnected ? "已连接" : "未连接"}
 						</div>
 					</div>
 					{connectionInfo.isConnected && (
@@ -182,7 +182,7 @@ export const BrowserSettingsMenu = () => {
 							{/* InfoLabel - Fixed-width label */}
 							<div className="flex-none w-[90px] font-medium">Type:</div>
 							{/* InfoValue - Flexible value container */}
-							<div className="flex-1 break-words">{connectionInfo.isRemote ? "Remote" : "Local"}</div>
+							<div className="flex-1 break-words">{connectionInfo.isRemote ? "远程" : "本地"}</div>
 						</div>
 					)}
 					{connectionInfo.isConnected && connectionInfo.isRemote && connectionInfo.host && (

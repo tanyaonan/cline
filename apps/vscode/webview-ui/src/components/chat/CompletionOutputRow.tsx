@@ -43,7 +43,7 @@ export const CompletionOutputRow = memo(
 					<div className={cn(headClassNames, "justify-between px-1")}>
 						<div className="flex gap-2 items-center">
 							<CheckIcon className="size-3 text-success" />
-							<span className="text-success font-bold">Task Completed</span>
+							<span className="text-success font-bold">任务完成</span>
 						</div>
 						<CopyButton className="text-success" textToCopy={text} />
 					</div>
@@ -105,7 +105,7 @@ const CompletionOutputActionRow = memo(
 						width: "100%",
 					}}>
 					<i className="codicon codicon-new-file" style={{ marginRight: 6 }} />
-					View Changes
+					查看更改
 				</SuccessButton>
 
 				{PLATFORM_CONFIG.type === PlatformType.VSCODE && (
@@ -126,7 +126,7 @@ const CompletionOutputActionRow = memo(
 							width: "100%",
 						}}>
 						<i className="codicon codicon-comment-discussion" style={{ marginRight: 6 }} />
-						{explainChangesDisabled ? "Explaining..." : "Explain Changes"}
+						{explainChangesDisabled ? "解释中..." : "解释更改"}
 					</SuccessButton>
 				)}
 			</div>

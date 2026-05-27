@@ -22,7 +22,7 @@ export const ContextWindowSwitcher = ({
 			return {
 				current: base200kModelId,
 				alternate: base1mModelId,
-				linkText: "Switch to 1M context window model",
+				linkText: "切换到 100 万上下文窗口模型",
 			}
 		}
 		if (selectedModelId === base1mModelId) {

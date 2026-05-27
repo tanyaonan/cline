@@ -39,27 +39,25 @@ const WelcomeView = memo(() => {
 	return (
 		<div className="fixed inset-0 p-0 flex flex-col">
 			<div className="h-full px-5 overflow-auto flex flex-col gap-2.5">
-				<h2 className="text-lg font-semibold">Hi, I'm Cline</h2>
+				<h2 className="text-lg font-semibold">嗨，我是 Cline</h2>
 				<div className="flex justify-center my-5">
 					<ClineLogoWhite className="size-16" />
 				</div>
 				<p>
-					I can do all kinds of tasks thanks to breakthroughs in{" "}
+					得益于{" "}
 					<VSCodeLink className="inline" href="https://www.anthropic.com/claude/sonnet">
-						Claude 4.6 Sonnet's
+						Claude 4.6 Sonnet
 					</VSCodeLink>
-					agentic coding capabilities and access to tools that let me create & edit files, explore complex projects, use
-					a browser, and execute terminal commands <i>(with your permission, of course)</i>. I can even use MCP to
-					create new tools and extend my own capabilities.
+					突破性的智能编码能力以及各种工具的使用权限，我可以创建和编辑文件、探索复杂项目、使用浏览器以及执行终端命令{" "}
+					<i>（当然，需要您的许可）</i>。我甚至可以使用 MCP 来创建新工具并扩展自己的能力。
 				</p>
 
 				<p className="text-(--vscode-descriptionForeground)">
-					Sign up for an account to get started for free, or use an API key that provides access to models like Claude
-					Sonnet.
+					注册账户即可免费开始使用，或使用 API 密钥来访问 Claude Sonnet 等模型。
 				</p>
 
 				<VSCodeButton appearance="primary" className="w-full mt-1" disabled={isLoading} onClick={handleLogin}>
-					Get Started for Free
+					免费开始使用
 					{isLoading && (
 						<span className="ml-1 animate-spin">
 							<span className="codicon codicon-refresh" />
@@ -72,7 +70,7 @@ const WelcomeView = memo(() => {
 						appearance="secondary"
 						className="mt-2.5 w-full"
 						onClick={() => setShowApiOptions(!showApiOptions)}>
-						Use your own API key
+						使用自己的 API 密钥
 					</VSCodeButton>
 				)}
 
@@ -81,7 +79,7 @@ const WelcomeView = memo(() => {
 						<div>
 							<ApiOptions currentMode={mode} showModelOptions={false} />
 							<VSCodeButton className="mt-0.75" disabled={disableLetsGoButton} onClick={handleSubmit}>
-								Let's go!
+								开始吧！
 							</VSCodeButton>
 						</div>
 					)}

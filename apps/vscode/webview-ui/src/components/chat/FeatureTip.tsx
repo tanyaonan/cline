@@ -108,7 +108,7 @@ export const FeatureTip = memo(() => {
 			)}>
 			<LightbulbIcon className="size-3 text-description shrink-0 mt-[1px]" />
 			<span className="text-xs text-description leading-relaxed">
-				<span className="font-medium">Tip:</span> {currentTip.text}
+				<span className="font-medium">提示：</span> {currentTip.text}
 			</span>
 		</div>
 	)

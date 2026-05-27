@@ -13,12 +13,10 @@ const AboutSection = ({ version, renderSectionHeader }: AboutSectionProps) => {
 				<div className="flex px-4 flex-col gap-2">
 					<h2 className="text-lg font-semibold">Cline v{version}</h2>
 					<p>
-						An AI assistant that can use your CLI and Editor. Cline can handle complex software development tasks
-						step-by-step with tools that let him create & edit files, explore large projects, use the browser, and
-						execute terminal commands (after you grant permission).
+						一个能够使用你的 CLI 和编辑器的 AI 助手。Cline 可以逐步处理复杂的软件开发任务，使用工具创建和编辑文件、探索大型项目、使用浏览器以及在获得你的授权后执行终端命令。
 					</p>
 
-					<h3 className="text-md font-semibold">Community & Support</h3>
+					<h3 className="text-md font-semibold">社区与支持</h3>
 					<p>
 						<VSCodeLink href="https://x.com/cline">X</VSCodeLink>
 						{" • "}
@@ -27,21 +25,21 @@ const AboutSection = ({ version, renderSectionHeader }: AboutSectionProps) => {
 						<VSCodeLink href="https://www.reddit.com/r/cline/"> r/cline</VSCodeLink>
 					</p>
 
-					<h3 className="text-md font-semibold">Development</h3>
+					<h3 className="text-md font-semibold">开发资源</h3>
 					<p>
 						<VSCodeLink href="https://github.com/cline/cline">GitHub</VSCodeLink>
 						{" • "}
-						<VSCodeLink href="https://github.com/cline/cline/issues"> Issues</VSCodeLink>
+						<VSCodeLink href="https://github.com/cline/cline/issues">问题反馈</VSCodeLink>
 						{" • "}
 						<VSCodeLink href="https://github.com/cline/cline/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop">
 							{" "}
-							Feature Requests
+							功能请求
 						</VSCodeLink>
 					</p>
 
-					<h3 className="text-md font-semibold">Resources</h3>
+					<h3 className="text-md font-semibold">相关资源</h3>
 					<p>
-						<VSCodeLink href="https://docs.cline.bot/">Documentation</VSCodeLink>
+						<VSCodeLink href="https://docs.cline.bot/">文档</VSCodeLink>
 						{" • "}
 						<VSCodeLink href="https://cline.bot/">https://cline.bot</VSCodeLink>
 					</p>

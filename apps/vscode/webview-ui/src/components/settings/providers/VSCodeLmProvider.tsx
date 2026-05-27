@@ -44,7 +44,7 @@ export const VSCodeLmProvider = ({ currentMode }: VSCodeLmProviderProps) => {
 		<div>
 			<DropdownContainer className="dropdown-container" zIndex={DROPDOWN_Z_INDEX - 2}>
 				<label htmlFor="vscode-lm-model">
-					<span style={{ fontWeight: 500 }}>Language Model</span>
+					<span style={{ fontWeight: 500 }}>语言模型</span>
 				</label>
 				{vsCodeLmModels.length > 0 ? (
 					<VSCodeDropdown
@@ -68,7 +68,7 @@ export const VSCodeLmProvider = ({ currentMode }: VSCodeLmProviderProps) => {
 								? `${vsCodeLmModelSelector.vendor ?? ""}/${vsCodeLmModelSelector.family ?? ""}`
 								: ""
 						}>
-						<VSCodeOption value="">Select a model...</VSCodeOption>
+						<VSCodeOption value="">选择一个模型...</VSCodeOption>
 						{vsCodeLmModels.map((model) => (
 							<VSCodeOption key={`${model.vendor}/${model.family}`} value={`${model.vendor}/${model.family}`}>
 								{model.vendor} - {model.family}

@@ -155,7 +155,7 @@ class LinkPreview extends React.Component<LinkPreviewProps, LinkPreviewState> {
 		} catch (err) {
 			this.setState({
 				error: "general",
-				errorMessage: err instanceof Error ? err.message : "Unknown error occurred",
+				errorMessage: err instanceof Error ? err.message : "发生未知错误",
 				loading: false,
 				hasCompletedFetch: true, // Mark as completed on error
 			})
@@ -211,7 +211,7 @@ class LinkPreview extends React.Component<LinkPreviewProps, LinkPreviewState> {
 						<div style={{ fontSize: "11px", color: "var(--vscode-descriptionForeground)" }}>
 							{elapsedSeconds > 60
 								? `Waiting for ${Math.floor(elapsedSeconds / 60)}m ${elapsedSeconds % 60}s...`
-								: `Waiting for ${elapsedSeconds}s...`}
+								: `等待中 ${elapsedSeconds} 秒...`}
 						</div>
 					)}
 				</div>
@@ -264,7 +264,7 @@ class LinkPreview extends React.Component<LinkPreviewProps, LinkPreviewState> {
 		// Create a fallback object if ogData is null
 		const data = ogData || {
 			title: getSafeHostname(url),
-			description: "No description available",
+			description: "无可用描述",
 			siteName: getSafeHostname(url),
 			url: url,
 		}
@@ -403,7 +403,7 @@ const MemoizedLinkPreview = React.memo(
 // Wrap the LinkPreview component with an error boundary
 const LinkPreviewWithErrorBoundary: React.FC<LinkPreviewProps> = (props) => {
 	return (
-		<ChatErrorBoundary errorTitle="Something went wrong displaying this link preview">
+		<ChatErrorBoundary errorTitle="显示链接预览时出错">
 			<MemoizedLinkPreview {...props} />
 		</ChatErrorBoundary>
 	)
